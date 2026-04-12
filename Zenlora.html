@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenlora — Platform Kursus Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <div class="nav-logo">
+        <span class="logo-icon">Z</span>
+        <span class="logo-text">Zen<span class="logo-accent">lora</span></span>
+      </div>
+      <div class="nav-search">
+        <span class="search-icon">&#128269;</span>
+        <input type="text" placeholder="Cari kursus, topik, instruktur..." id="searchInput" />
+      </div>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="nav-link">Jelajahi</a>
+      <a href="#" class="nav-link">Komunitas</a>
+      <a href="#" class="nav-link">Tentang</a>
+      <button class="btn-outline">Masuk</button>
+      <button class="btn-primary">Daftar</button>
+      <button class="nav-hamburger" id="hamburger">&#9776;</button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#">Jelajahi</a>
+    <a href="#">Komunitas</a>
+    <a href="#">Tentang</a>
+    <button class="btn-outline">Masuk</button>
+    <button class="btn-primary">Daftar</button>
+  </div>
+
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Platform Belajar Online Terpercaya</div>
+      <h1 class="hero-title">
+        Belajar Lebih Cerdas,<br />
+        <span class="gradient-text">Raih Lebih Jauh</span>
+      </h1>
+      <p class="hero-sub">
+        Lebih dari <strong>2.400+</strong> kursus premium dari instruktur terbaik. Belajar coding, desain, bisnis, dan banyak lagi kapan saja dan di mana saja.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-hero-primary">Mulai Gratis</button>
+        <button class="btn-hero-secondary">Lihat Demo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">2.4K+</span><span class="stat-label">Kursus</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">180K+</span><span class="stat-label">Pelajar</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">920+</span><span class="stat-label">Instruktur</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4.8 Bintang</span><span class="stat-label">Rating</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card card-1">
+        <span class="fc-icon">&#128187;</span>
+        <div><strong>Web Development</strong><br /><small>1.240 pelajar aktif</small></div>
+      </div>
+      <div class="floating-card card-2">
+        <span class="fc-icon">&#127912;</span>
+        <div><strong>UI/UX Design</strong><br /><small>876 pelajar aktif</small></div>
+      </div>
+      <div class="floating-card card-3">
+        <span class="fc-icon">&#129302;</span>
+        <div><strong>AI & Machine Learning</strong><br /><small>2.100 pelajar aktif</small></div>
+      </div>
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Jelajahi Kursus</h2>
+        <p class="section-sub">Temukan kursus yang sesuai dengan tujuanmu</p>
+      </div>
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-cat="semua">Semua</button>
+        <button class="filter-tab" data-cat="coding">Coding</button>
+        <button class="filter-tab" data-cat="desain">Desain</button>
+        <button class="filter-tab" data-cat="bisnis">Bisnis</button>
+        <button class="filter-tab" data-cat="data">Data Science</button>
+        <button class="filter-tab" data-cat="ai">AI & ML</button>
+        <button class="filter-tab" data-cat="game">Game Dev</button>
+      </div>
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <span class="result-count" id="resultCount">Menampilkan 6 kursus</span>
+        </div>
+        <div class="toolbar-right">
+          <select class="sort-select" id="sortSelect">
+            <option value="popular">Terpopuler</option>
+            <option value="newest">Terbaru</option>
+            <option value="rating">Rating Tertinggi</option>
+            <option value="price-low">Harga Terendah</option>
+          </select>
+          <button class="view-btn active" id="viewGrid" title="Grid">&#8862;</button>
+          <button class="view-btn" id="viewList" title="List">&#9776;</button>
+        </div>
+      </div>
+      <div class="course-grid" id="courseGrid"></div>
+      <div class="load-more-wrap">
+        <button class="btn-load-more" id="loadMoreBtn">Muat Lebih Banyak</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Instruktur Terbaik</h2>
+        <p class="section-sub">Belajar langsung dari para ahli berpengalaman</p>
+      </div>
+      <div class="instructor-grid" id="instructorGrid"></div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-bg-glow"></div>
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-badge">Penawaran Terbatas</div>
+        <h2>Akses Semua Kursus Premium</h2>
+        <p>Belajar tanpa batas dengan lebih dari 2.400 kursus berkualitas tinggi. Mulai sekarang dengan harga spesial.</p>
+        <div class="cta-price">
+          <span class="price-old">Rp 299.000/bln</span>
+          <span class="price-new">Rp 99.000/bln</span>
+          <span class="price-badge">Hemat 67%</span>
+        </div>
+        <button class="btn-cta-main">Berlangganan Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Kata Mereka</h2>
+        <p class="section-sub">Bergabung bersama ratusan ribu pelajar yang telah merasakan manfaatnya</p>
+      </div>
+      <div class="testimonial-grid" id="testimonialGrid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <span class="logo-icon">Z</span>
+            <span class="logo-text">Zen<span class="logo-accent">lora</span></span>
+          </div>
+          <p>Platform belajar online terbaik untuk mengembangkan skill dan karir digitalmu.</p>
+          <div class="social-links">
+            <a href="#" class="social-btn">TW</a>
+            <a href="#" class="social-btn">IG</a>
+            <a href="#" class="social-btn">LI</a>
+            <a href="#" class="social-btn">YT</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Kursus</h4>
+          <a href="#">Web Development</a>
+          <a href="#">Mobile Development</a>
+          <a href="#">UI/UX Design</a>
+          <a href="#">Data Science</a>
+          <a href="#">AI & Machine Learning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Perusahaan</h4>
+          <a href="#">Tentang Kami</a>
+          <a href="#">Karir</a>
+          <a href="#">Blog</a>
+          <a href="#">Press Kit</a>
+          <a href="#">Hubungi Kami</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Pusat Bantuan</a>
+          <a href="#">Syarat & Ketentuan</a>
+          <a href="#">Kebijakan Privasi</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Affiliate Program</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>2025 Zenlora. All rights reserved.</span>
+        <span>Dibuat dengan semangat di Indonesia</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">X</button>
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
