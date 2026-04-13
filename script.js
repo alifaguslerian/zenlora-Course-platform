@@ -2,7 +2,7 @@ const COURSES = [
   {
     id: 1, category: "coding", catLabel: "Coding",
     title: "Full Stack Web Development dengan React dan Node.js",
-    instructor: "Budi Santoso", instructorAvatar: "A",
+    instructor: "Budi Santoso", instructorAvatar: "BS",
     emoji: "W", color: "#dbeafe",
     rating: 4.9, ratingCount: 3241, students: 12800,
     duration: "48 jam", lessons: 210, level: "Pemula ke Lanjut",
@@ -14,7 +14,7 @@ const COURSES = [
   {
     id: 2, category: "desain", catLabel: "Desain",
     title: "UI/UX Design Mastery: Figma, Prototyping dan Design System",
-    instructor: "Sari Putri", instructorAvatar: "B",
+    instructor: "Sari Putri", instructorAvatar: "SP",
     emoji: "D", color: "#ede9fe",
     rating: 4.8, ratingCount: 1876, students: 7400,
     duration: "32 jam", lessons: 145, level: "Semua Level",
@@ -26,7 +26,7 @@ const COURSES = [
   {
     id: 3, category: "ai", catLabel: "AI & ML",
     title: "Machine Learning dan AI dengan Python: Zero to Hero",
-    instructor: "Dr. Ahmad Fauzi", instructorAvatar: "C",
+    instructor: "Dr. Ahmad Fauzi", instructorAvatar: "AF",
     emoji: "AI", color: "#cffafe",
     rating: 4.9, ratingCount: 2105, students: 9200,
     duration: "55 jam", lessons: 280, level: "Menengah",
@@ -38,7 +38,7 @@ const COURSES = [
   {
     id: 4, category: "bisnis", catLabel: "Bisnis",
     title: "Digital Marketing Masterclass: SEO, Ads dan Content Strategy",
-    instructor: "Rina Dewi", instructorAvatar: "D",
+    instructor: "Rina Dewi", instructorAvatar: "RD",
     emoji: "M", color: "#fef9c3",
     rating: 4.7, ratingCount: 1543, students: 5600,
     duration: "28 jam", lessons: 120, level: "Pemula",
@@ -50,7 +50,7 @@ const COURSES = [
   {
     id: 5, category: "data", catLabel: "Data Science",
     title: "Data Science dengan Python: Analisis, Visualisasi dan Dashboard",
-    instructor: "Hendra Kurnia", instructorAvatar: "E",
+    instructor: "Hendra Kurnia", instructorAvatar: "HK",
     emoji: "DS", color: "#ffedd5",
     rating: 4.8, ratingCount: 987, students: 3800,
     duration: "38 jam", lessons: 165, level: "Menengah",
@@ -62,7 +62,7 @@ const COURSES = [
   {
     id: 6, category: "game", catLabel: "Game Dev",
     title: "Unity Game Development: Buat Game 3D dari Nol",
-    instructor: "Fajar Ramadhan", instructorAvatar: "F",
+    instructor: "Fajar Ramadhan", instructorAvatar: "FR",
     emoji: "G", color: "#fce7f3",
     rating: 4.9, ratingCount: 2234, students: 8100,
     duration: "42 jam", lessons: 190, level: "Pemula ke Pro",
@@ -74,7 +74,7 @@ const COURSES = [
   {
     id: 7, category: "coding", catLabel: "Coding",
     title: "Flutter dan Dart: Buat Aplikasi iOS dan Android Sekaligus",
-    instructor: "Kevin Pratama", instructorAvatar: "G",
+    instructor: "Kevin Pratama", instructorAvatar: "KP",
     emoji: "FL", color: "#dbeafe",
     rating: 4.8, ratingCount: 1320, students: 5200,
     duration: "35 jam", lessons: 155, level: "Pemula",
@@ -86,7 +86,7 @@ const COURSES = [
   {
     id: 8, category: "desain", catLabel: "Desain",
     title: "Ilustrasi Digital dan Branding dengan Adobe Illustrator",
-    instructor: "Maya Susanti", instructorAvatar: "H",
+    instructor: "Maya Susanti", instructorAvatar: "MS",
     emoji: "IL", color: "#ede9fe",
     rating: 4.7, ratingCount: 876, students: 3100,
     duration: "22 jam", lessons: 95, level: "Pemula ke Menengah",
@@ -98,7 +98,7 @@ const COURSES = [
   {
     id: 9, category: "ai", catLabel: "AI & ML",
     title: "ChatGPT dan Prompt Engineering: Kuasai AI untuk Bisnis",
-    instructor: "Indra Wijaya", instructorAvatar: "I",
+    instructor: "Indra Wijaya", instructorAvatar: "IW",
     emoji: "PE", color: "#cffafe",
     rating: 4.6, ratingCount: 3455, students: 15200,
     duration: "18 jam", lessons: 80, level: "Semua Level",
@@ -110,7 +110,7 @@ const COURSES = [
   {
     id: 10, category: "bisnis", catLabel: "Bisnis",
     title: "Bisnis Online dan E-commerce: Dari Nol ke Profit",
-    instructor: "Toni Handoko", instructorAvatar: "J",
+    instructor: "Toni Handoko", instructorAvatar: "TH",
     emoji: "EC", color: "#fef9c3",
     rating: 4.7, ratingCount: 1987, students: 7800,
     duration: "30 jam", lessons: 130, level: "Pemula",
@@ -122,7 +122,7 @@ const COURSES = [
   {
     id: 11, category: "data", catLabel: "Data Science",
     title: "SQL dan Database: Analisis Data untuk Pemula",
-    instructor: "Agus Setiawan", instructorAvatar: "K",
+    instructor: "Agus Setiawan", instructorAvatar: "AS",
     emoji: "SQL", color: "#ffedd5",
     rating: 4.8, ratingCount: 1234, students: 4600,
     duration: "20 jam", lessons: 90, level: "Pemula",
@@ -134,7 +134,7 @@ const COURSES = [
   {
     id: 12, category: "coding", catLabel: "Coding",
     title: "Cybersecurity dan Ethical Hacking untuk Pemula",
-    instructor: "Rizky Hasan", instructorAvatar: "L",
+    instructor: "Rizky Hasan", instructorAvatar: "RH",
     emoji: "CS", color: "#dbeafe",
     rating: 4.9, ratingCount: 2876, students: 11200,
     duration: "50 jam", lessons: 230, level: "Pemula ke Lanjut",
@@ -154,15 +154,6 @@ const INSTRUCTORS = [
   { name: "Fajar Ramadhan", specialty: "Game Developer", avatar: "FR", courses: 7, students: "19K", rating: "4.9" },
 ];
 
-const TESTIMONIALS = [
-  { rating: 5, text: "Platform terbaik yang pernah saya coba. Materi sangat lengkap dan instrukturnya menjelaskan dengan sangat mudah dipahami. Berhasil mendapat pekerjaan di startup setelah lulus kursus Web Dev.", name: "Arif Rahman", role: "Frontend Developer", avatar: "AR" },
-  { rating: 5, text: "Kursus UI/UX sangat luar biasa. Dari yang tidak tahu Figma sama sekali, sekarang sudah bisa menangani proyek desain sendiri. Investasi yang sangat worth it.", name: "Dewi Anggraini", role: "UI Designer Freelance", avatar: "DA" },
-  { rating: 5, text: "Awalnya ragu belajar AI tapi ternyata materinya dijelaskan dengan sangat sistematis. Sekarang sudah bisa membuat model machine learning sendiri untuk kebutuhan kantor.", name: "Hasan Basri", role: "Data Scientist", avatar: "HB" },
-  { rating: 4, text: "Kursus Digital Marketing gratisnya sangat bermanfaat. Langsung bisa dipraktikkan ke bisnis online saya. Omzet naik signifikan dalam dua bulan pertama.", name: "Sinta Maharani", role: "Pemilik Bisnis Online", avatar: "SM" },
-  { rating: 5, text: "Instruktur responsif dan komunitas Discord sangat aktif. Setiap kali ada kendala selalu ada yang membantu. Pengalaman belajar terbaik yang pernah saya rasakan.", name: "Dito Prasetya", role: "Backend Developer", avatar: "DP" },
-  { rating: 5, text: "Kursus game development sangat lengkap dan terstruktur. Dalam tiga bulan sudah berhasil mempublikasikan game pertama di Play Store. Mimpi yang akhirnya terwujud.", name: "Gilang Saputra", role: "Indie Game Developer", avatar: "GS" },
-];
-
 let currentCategory = "semua";
 let currentView = "grid";
 let wishlist = new Set();
@@ -172,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
   createParticles();
   renderCourses();
   renderInstructors();
-  renderTestimonials();
   setupNavbar();
   setupFilters();
   setupViewToggle();
@@ -195,8 +185,34 @@ function createParticles() {
 }
 
 function setupNavbar() {
+  const navbar = document.getElementById("navbar");
+  const mobileMenu = document.getElementById("mobileMenu");
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
   window.addEventListener("scroll", () => {
-    document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 40);
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+
+        // hide when scrolling down past 80px, show when scrolling up
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          navbar.classList.add("hidden");
+          if (mobileMenu.classList.contains("open")) {
+            mobileMenu.classList.remove("open");
+          }
+        } else {
+          navbar.classList.remove("hidden");
+        }
+
+        // add scrolled style
+        navbar.classList.toggle("scrolled", currentScrollY > 40);
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 }
 
@@ -279,10 +295,9 @@ function renderCourses(searchQuery = "") {
   document.getElementById("loadMoreBtn").style.display = displayCount >= total ? "none" : "inline-block";
 
   grid.innerHTML = "";
-
   if (shown.length === 0) {
     grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted)">
-      <div style="font-size:48px;margin-bottom:12px">?</div>
+      <div style="font-size:40px;margin-bottom:12px">?</div>
       <div style="font-size:18px;font-weight:700;margin-bottom:6px;color:var(--text-secondary)">Kursus tidak ditemukan</div>
       <div>Coba kata kunci lain atau ubah filter</div>
     </div>`;
@@ -366,7 +381,7 @@ function renderInstructors() {
     card.className = "instructor-card";
     card.style.animationDelay = `${idx * 0.1}s`;
     card.innerHTML = `
-      <div class="instructor-avatar" style="font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--accent-blue)">${ins.avatar}</div>
+      <div class="instructor-avatar" style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--accent-blue)">${ins.avatar}</div>
       <div class="instructor-name">${ins.name}</div>
       <div class="instructor-specialty">${ins.specialty}</div>
       <div class="instructor-stats">
@@ -376,24 +391,6 @@ function renderInstructors() {
       </div>
     `;
     card.addEventListener("click", () => showToast("Profil " + ins.name + " segera hadir"));
-    grid.appendChild(card);
-  });
-}
-
-function renderTestimonials() {
-  const grid = document.getElementById("testimonialGrid");
-  TESTIMONIALS.forEach((t, idx) => {
-    const card = document.createElement("div");
-    card.className = "testimonial-card";
-    card.style.animation = `fadeInUp 0.5s ease ${idx * 0.1}s both`;
-    card.innerHTML = `
-      <div class="testi-rating">${"★".repeat(t.rating)}${"☆".repeat(5 - t.rating)}</div>
-      <div class="testi-text">"${t.text}"</div>
-      <div class="testi-user">
-        <div class="testi-avatar" style="font-family:var(--font-display);font-size:12px;font-weight:700;color:var(--accent-blue)">${t.avatar}</div>
-        <div><div class="testi-name">${t.name}</div><div class="testi-role">${t.role}</div></div>
-      </div>
-    `;
     grid.appendChild(card);
   });
 }
@@ -412,7 +409,7 @@ function openModal(course) {
     : `<span class="price-current">Rp ${course.price.toLocaleString("id-ID")}</span><span class="price-original">Rp ${course.originalPrice.toLocaleString("id-ID")}</span>`;
 
   const discount = course.price > 0 ? Math.round((1 - course.price / course.originalPrice) * 100) : 0;
-  const featuresHTML = course.features.map(f => `<div class="modal-feature"><span style="color:var(--accent-blue);font-weight:800">✓</span> ${f}</div>`).join("");
+  const featuresHTML = course.features.map(f => `<div class="modal-feature"><span style="color:var(--accent-blue);font-weight:800">v</span> ${f}</div>`).join("");
 
   document.getElementById("modalContent").innerHTML = `
     <div class="modal-thumb">
@@ -452,7 +449,7 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
-function handleEnroll(title) {
+function handleEnroll() {
   closeModal();
   showToast("Pendaftaran berhasil. Selamat belajar!");
 }
@@ -476,7 +473,7 @@ function animateOnScroll() {
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll(".section-header, .instructor-card, .testimonial-card").forEach(el => {
+  document.querySelectorAll(".section-header, .instructor-card").forEach(el => {
     el.style.opacity = "0";
     el.style.transform = "translateY(24px)";
     el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
