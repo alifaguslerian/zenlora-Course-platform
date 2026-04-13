@@ -281,3 +281,10 @@
   .filter-tab   { padding: 8px 12px; font-size: 13px; }
   .toolbar      { flex-direction: column; align-items: flex-start; }
 }
+
+/* --- Dark Mode --- */
+body.dark .filter-tabs  { background: var(--bg-secondary); }
+body.dark .sort-select  { background: var(--bg-elevated); color: var(--text-primary); }
+body.dark .view-btn     { background: var(--bg-elevated); }
+body.dark .btn-load-more{ background: var(--bg-elevated); }
+body.dark .course-wishlist { background: rgba(26, 32, 53, 0.9); }

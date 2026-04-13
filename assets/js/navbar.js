@@ -48,3 +48,27 @@ function setupMobileMenu() {
     }
   });
 }
+
+// --- Dark Mode Toggle ---
+function setupDarkMode() {
+  const btn  = document.getElementById("darkModeToggle");
+  const body = document.body;
+
+  // cek preferensi yang tersimpan di localStorage
+  if (localStorage.getItem("zenlora-theme") === "dark") {
+    body.classList.add("dark");
+    btn.innerHTML = "&#9728;"; // ikon matahari saat dark mode aktif
+  }
+
+  btn.addEventListener("click", () => {
+    body.classList.toggle("dark");
+
+    const isDark = body.classList.contains("dark");
+
+    // ikon: bulan = light mode, matahari = dark mode
+    btn.innerHTML = isDark ? "&#9728;" : "&#9790;";
+
+    // simpan preferensi
+    localStorage.setItem("zenlora-theme", isDark ? "dark" : "light");
+  });
+}

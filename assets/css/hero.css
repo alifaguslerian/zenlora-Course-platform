@@ -288,3 +288,8 @@
   /* sembunyikan floating cards di layar sangat kecil */
   .floating-card { display: none; }
 }
+
+/* --- Dark Mode --- */
+body.dark .floating-card {
+  background: rgba(26, 32, 53, 0.92);
+}

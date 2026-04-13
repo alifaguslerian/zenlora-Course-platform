@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSearch();        // search bar (courses.js)
   setupModal();         // modal detail kursus (modal.js)
   setupLoadMore();      // tombol muat lebih banyak (courses.js)
+  setupDarkMode();     // toggle dark mode (navbar.js)
   animateOnScroll();    // fade-in saat elemen masuk viewport
 });
 

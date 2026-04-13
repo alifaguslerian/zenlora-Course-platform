@@ -252,3 +252,8 @@
 @media (max-width: 768px) {
   .modal-features { grid-template-columns: 1fr; }
 }
+
+/* --- Dark Mode --- */
+body.dark .modal { background: var(--bg-card); }
+body.dark .modal-close { background: var(--bg-elevated); }
+body.dark .toast { background: var(--bg-elevated); }

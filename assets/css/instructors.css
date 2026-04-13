@@ -54,3 +54,6 @@
 
 .ins-stat { font-size: 12px; color: var(--text-muted); }
 .ins-stat strong { display: block; color: var(--text-primary); font-size: 14px; }
+
+/* --- Dark Mode --- */
+body.dark .instructor-card { background: var(--bg-card); }

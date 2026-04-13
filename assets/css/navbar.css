@@ -158,3 +158,31 @@
   .nav-right .btn-primary { display: none; }
   .nav-hamburger { display: block; }
 }
+
+/* --- Dark Mode Toggle Button --- */
+.btn-darkmode {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 16px;
+  width: 36px; height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.btn-darkmode:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* dark mode override untuk navbar */
+body.dark .navbar {
+  background: rgba(15, 17, 23, 0.88);
+}
+body.dark .navbar.scrolled {
+  background: rgba(15, 17, 23, 0.98);
+}
+body.dark .nav-search  { background: var(--bg-elevated); }
+body.dark .mobile-menu { background: var(--bg-secondary); }
