@@ -1,0 +1,254 @@
+/* ============================================================
+   MODAL — overlay, detail kursus, CTA banner
+   ============================================================ */
+
+/* --- Overlay Background --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.open {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+/* --- Modal Box --- */
+.modal {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 24px 64px rgba(37,99,235,0.15);
+}
+
+/* --- Close Button --- */
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.modal-close:hover {
+  color: var(--text-primary);
+  border-color: var(--accent-blue);
+}
+
+/* --- Modal Content --- */
+.modal-thumb {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.modal-thumb-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-category {
+  color: var(--accent-blue);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.modal-instructor {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.modal-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.modal-desc {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* --- Feature List (grid 2 kolom) --- */
+.modal-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.modal-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* --- Modal Footer (harga + tombol) --- */
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-price-section .price-current {
+  font-size: 24px;
+  font-family: var(--font-display);
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.modal-price-section .price-original {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.btn-modal-enroll {
+  background: var(--accent-blue);
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+.btn-modal-enroll:hover {
+  background: var(--accent-blue-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+}
+
+/* --- CTA Banner --- */
+.cta-banner {
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e40af 0%, #0369a1 100%);
+}
+
+.cta-bg-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-badge {
+  display: inline-flex;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.cta-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.5vw, 34px);
+  margin-bottom: 14px;
+  color: white;
+}
+
+.cta-content p {
+  color: rgba(255,255,255,0.75);
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+.cta-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.price-old  { color: rgba(255,255,255,0.5); text-decoration: line-through; font-size: 16px; }
+.price-new  { font-family: var(--font-display); font-size: 28px; color: white; font-weight: 700; }
+
+.price-badge {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.btn-cta-main {
+  background: white;
+  color: var(--accent-blue);
+  font-weight: 800;
+  font-size: 16px;
+  padding: 15px 36px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.btn-cta-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .modal-features { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,56 @@
+/* ============================================================
+   INSTRUCTORS — grid layout dan card instruktur
+   ============================================================ */
+
+/* --- Grid --- */
+.instructor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* --- Card --- */
+.instructor-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 20px;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+}
+
+.instructor-card:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* --- Avatar --- */
+.instructor-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 3px solid var(--border);
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.instructor-card:hover .instructor-avatar {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+
+/* --- Info --- */
+.instructor-name      { font-weight: 800; font-size: 16px; margin-bottom: 4px; }
+.instructor-specialty { font-size: 13px; color: var(--accent-blue); font-weight: 700; margin-bottom: 10px; }
+
+/* --- Stats Row --- */
+.instructor-stats { display: flex; gap: 16px; justify-content: center; }
+
+.ins-stat { font-size: 12px; color: var(--text-muted); }
+.ins-stat strong { display: block; color: var(--text-primary); font-size: 14px; }

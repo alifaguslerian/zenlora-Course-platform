@@ -1,0 +1,290 @@
+/* ============================================================
+   HERO — full-height landing section, background grid,
+   particles, floating cards, orb glows, stats
+   ============================================================ */
+
+/* --- Hero Container --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 24px 60px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(37,99,235,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(14,165,233,0.07) 0%, transparent 50%),
+    var(--bg-primary);
+}
+
+/* --- Background Grid --- */
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(203,213,225,0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(203,213,225,0.6) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+}
+
+/* --- Floating Particles --- */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  animation: float-particle linear infinite;
+  opacity: 0;
+}
+
+@keyframes float-particle {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.4; }
+  90%  { opacity: 0.15; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* --- Hero Content (kiri) --- */
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  z-index: 1;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(37,99,235,0.1);
+  border: 1px solid rgba(37,99,235,0.25);
+  color: var(--accent-blue);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.7s ease 0.1s both;
+}
+
+/* Gradient text untuk bagian judul berwarna */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  animation: fadeInUp 0.7s ease 0.2s both;
+}
+
+/* --- Hero CTA Buttons --- */
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.7s ease 0.3s both;
+}
+
+.btn-hero-primary {
+  background: var(--accent-blue);
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+}
+.btn-hero-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37,99,235,0.45);
+}
+
+.btn-hero-secondary {
+  background: white;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  transition: var(--transition);
+}
+.btn-hero-secondary:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateY(-3px);
+}
+
+/* --- Hero Stats --- */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  animation: fadeInUp 0.7s ease 0.4s both;
+}
+
+.stat { text-align: center; padding: 0 20px; }
+.stat:first-child { padding-left: 0; }
+
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+}
+
+/* --- Hero Visual (kanan) — area floating cards --- */
+.hero-visual {
+  flex: 1;
+  position: relative;
+  min-height: 520px;
+  z-index: 1;
+}
+
+/* --- Orb Glow Effects --- */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 280px; height: 280px;
+  background: var(--accent-blue);
+  top: 15%; left: 25%;
+  animation: orb-pulse 4s ease-in-out infinite;
+}
+.orb-2 {
+  width: 180px; height: 180px;
+  background: var(--accent-cyan);
+  bottom: 15%; right: 10%;
+  animation: orb-pulse 5s ease-in-out 1s infinite;
+}
+.orb-3 {
+  width: 140px; height: 140px;
+  background: var(--accent-indigo);
+  top: 55%; left: 45%;
+  animation: orb-pulse 3.5s ease-in-out 0.5s infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1) translate(-50%, -50%); opacity: 0.2; }
+  50%       { transform: scale(1.2) translate(-50%, -50%); opacity: 0.35; }
+}
+
+/* --- Floating Cards --- */
+.floating-card {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  box-shadow: 0 4px 24px rgba(37,99,235,0.1);
+  font-size: 13px;
+  white-space: nowrap;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.floating-card:hover {
+  box-shadow: 0 8px 32px rgba(37,99,235,0.18);
+  transform: scale(1.03) !important; /* override animasi sementara */
+}
+
+.floating-card strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 1px;
+  font-size: 13px;
+}
+
+.floating-card small {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.fc-icon { font-size: 24px; flex-shrink: 0; }
+
+/* Posisi dan animasi masing-masing card */
+.card-1 { top: 4%;  left: 5%;  animation: fc-float-a 4.2s ease-in-out infinite; }
+.card-2 { top: 20%; right: 2%; animation: fc-float-b 5.0s ease-in-out 0.8s infinite; }
+.card-3 { top: 42%; left: 0%;  animation: fc-float-a 4.6s ease-in-out 1.4s infinite; }
+.card-4 { top: 60%; right: 6%; animation: fc-float-b 3.8s ease-in-out 0.4s infinite; }
+.card-5 { top: 78%; left: 8%;  animation: fc-float-a 5.2s ease-in-out 1.0s infinite; }
+.card-6 { top: 88%; right: 0%; animation: fc-float-b 4.4s ease-in-out 1.8s infinite; }
+
+/* Dua varian float agar tidak semua bergerak serentak */
+@keyframes fc-float-a {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes fc-float-b {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 24px 60px;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-cta     { justify-content: center; }
+  .hero-stats   { justify-content: center; }
+  .hero-visual  { min-height: 340px; width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .hero-stats { flex-wrap: wrap; gap: 16px; }
+  .stat-divider { display: none; }
+  .floating-card { font-size: 12px; padding: 10px 12px; }
+}
+
+@media (max-width: 480px) {
+  /* sembunyikan floating cards di layar sangat kecil */
+  .floating-card { display: none; }
+}
