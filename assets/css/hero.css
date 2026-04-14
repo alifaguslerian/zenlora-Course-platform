@@ -169,102 +169,6 @@
   background: var(--border);
 }
 
-/* --- Hero Visual (kanan) — area floating cards --- */
-.hero-visual {
-  flex: 1;
-  position: relative;
-  min-height: 520px;
-  z-index: 1;
-}
-
-/* --- Orb Glow Effects --- */
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(50px);
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.orb-1 {
-  width: 280px; height: 280px;
-  background: var(--accent-blue);
-  top: 15%; left: 25%;
-  animation: orb-pulse 4s ease-in-out infinite;
-}
-.orb-2 {
-  width: 180px; height: 180px;
-  background: var(--accent-cyan);
-  bottom: 15%; right: 10%;
-  animation: orb-pulse 5s ease-in-out 1s infinite;
-}
-.orb-3 {
-  width: 140px; height: 140px;
-  background: var(--accent-indigo);
-  top: 55%; left: 45%;
-  animation: orb-pulse 3.5s ease-in-out 0.5s infinite;
-}
-
-@keyframes orb-pulse {
-  0%, 100% { transform: scale(1) translate(-50%, -50%); opacity: 0.2; }
-  50%       { transform: scale(1.2) translate(-50%, -50%); opacity: 0.35; }
-}
-
-/* --- Floating Cards --- */
-.floating-card {
-  position: absolute;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(255,255,255,0.93);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 12px 16px;
-  box-shadow: 0 4px 24px rgba(37,99,235,0.1);
-  font-size: 13px;
-  white-space: nowrap;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.floating-card:hover {
-  box-shadow: 0 8px 32px rgba(37,99,235,0.18);
-  transform: scale(1.03) !important; /* override animasi sementara */
-}
-
-.floating-card strong {
-  display: block;
-  color: var(--text-primary);
-  margin-bottom: 1px;
-  font-size: 13px;
-}
-
-.floating-card small {
-  color: var(--text-muted);
-  font-size: 11px;
-}
-
-.fc-icon { font-size: 24px; flex-shrink: 0; }
-
-/* Posisi dan animasi masing-masing card */
-.card-1 { top: 4%;  left: 5%;  animation: fc-float-a 4.2s ease-in-out infinite; }
-.card-2 { top: 20%; right: 2%; animation: fc-float-b 5.0s ease-in-out 0.8s infinite; }
-.card-3 { top: 42%; left: 0%;  animation: fc-float-a 4.6s ease-in-out 1.4s infinite; }
-.card-4 { top: 60%; right: 6%; animation: fc-float-b 3.8s ease-in-out 0.4s infinite; }
-.card-5 { top: 78%; left: 8%;  animation: fc-float-a 5.2s ease-in-out 1.0s infinite; }
-.card-6 { top: 88%; right: 0%; animation: fc-float-b 4.4s ease-in-out 1.8s infinite; }
-
-/* Dua varian float agar tidak semua bergerak serentak */
-@keyframes fc-float-a {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-14px); }
-}
-@keyframes fc-float-b {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
-}
-
 /* --- Responsive --- */
 @media (max-width: 1024px) {
   .hero {
@@ -292,4 +196,229 @@
 /* --- Dark Mode --- */
 body.dark .floating-card {
   background: rgba(26, 32, 53, 0.92);
+}
+
+/* --- Responsive hero tanpa visual kanan --- */
+@media (max-width: 1024px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+  }
+  .hero-content  { max-width: 720px; }
+  .hero-cta      { justify-content: center; }
+  .hero-stats    { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  .hero-stats    { flex-wrap: wrap; gap: 16px; }
+  .stat-divider  { display: none; }
+}
+
+/* --- Hero Visual: 2 kolom kanan --- */
+.hero-visual {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 1;
+  position: relative;
+  max-width: 420px;
+}
+
+/* --- Hero Banner Base --- */
+.hero-banner {
+  border-radius: var(--radius-xl);
+  padding: 24px 26px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  animation: fadeInUp 0.7s ease both;
+}
+
+.hero-banner:first-child { animation-delay: 0.3s; }
+.hero-banner:last-child  { animation-delay: 0.5s; }
+
+.hero-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.18);
+}
+
+/* garis aksen atas */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+/* --- Varian Flash Sale --- */
+.banner-flash {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-color: #fed7aa;
+}
+.banner-flash::before {
+  background: linear-gradient(90deg, #f97316, #ef4444);
+}
+
+/* --- Varian Bundle --- */
+.banner-bundle {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-color: #ddd6fe;
+}
+.banner-bundle::before {
+  background: linear-gradient(90deg, #7c3aed, #6366f1);
+}
+
+/* --- Tag (label atas) --- */
+.hb-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.banner-flash .hb-tag  { background: #f97316; color: white; }
+.banner-bundle .hb-tag { background: #7c3aed; color: white; }
+
+/* --- Timer di dalam tag --- */
+.hb-timer {
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+}
+
+/* --- Title --- */
+.hb-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+/* --- Deskripsi --- */
+.hb-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* --- Meta info --- */
+.hb-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.hb-meta-item {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.hb-meta-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* --- Harga --- */
+.hb-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.hb-price-new {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.hb-price-old {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.hb-discount {
+  font-size: 11px;
+  font-weight: 800;
+  background: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* --- Tombol --- */
+.hb-btn {
+  width: 100%;
+  padding: 11px 0;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 800;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  transition: var(--transition);
+}
+.hb-btn:hover {
+  background: var(--accent-blue-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.hb-btn-purple {
+  background: #7c3aed;
+}
+.hb-btn-purple:hover {
+  background: #6d28d9;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+}
+
+/* --- Dark Mode --- */
+body.dark .banner-flash {
+  background: linear-gradient(135deg, #2a1810 0%, #3a2010 100%);
+  border-color: #5a3020;
+}
+body.dark .banner-bundle {
+  background: linear-gradient(135deg, #1a1030 0%, #251540 100%);
+  border-color: #352560;
+}
+body.dark .hb-title { color: var(--text-primary); }
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 24px 60px;
+  }
+  .hero-content { max-width: 100%; }
+  .hero-cta     { justify-content: center; }
+  .hero-stats   { justify-content: center; }
+  .hero-visual  { max-width: 100%; width: 100%; flex-direction: row; }
+}
+
+@media (max-width: 768px) {
+  .hero-stats    { flex-wrap: wrap; gap: 16px; }
+  .stat-divider  { display: none; }
+  .hero-visual   { flex-direction: column; }
 }

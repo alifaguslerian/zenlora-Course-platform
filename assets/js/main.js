@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupModal();         // modal detail kursus (modal.js)
   setupLoadMore();      // tombol muat lebih banyak (courses.js)
   setupDarkMode();     // toggle dark mode (navbar.js)
+  setupPromo();     // scroll promo strip & countdown timer (promo.js)
   animateOnScroll();    // fade-in saat elemen masuk viewport
 });
 
