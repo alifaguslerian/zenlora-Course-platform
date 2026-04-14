@@ -216,26 +216,42 @@ body.dark .floating-card {
 }
 
 /* --- Hero Visual: 2 kolom kanan --- */
-.hero-visual {
+/* --- Hero layout: konten kiri + visual kanan --- */
+.hero {
+  gap: 48px;
+  align-items: stretch;
+}
+
+.hero-content {
   flex: 1;
+  min-width: 0;
+}
+
+/* --- Hero Visual: kolom kanan berisi 2 banner --- */
+.hero-visual {
+  flex: 1.1;
   display: flex;
   flex-direction: column;
   gap: 18px;
   z-index: 1;
   position: relative;
-  max-width: 420px;
+  align-self: stretch;
+  justify-content: center;
 }
 
 /* --- Hero Banner Base --- */
 .hero-banner {
   border-radius: var(--radius-xl);
-  padding: 24px 26px;
+  padding: 28px 30px;
   border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
   cursor: pointer;
   transition: var(--transition);
   animation: fadeInUp 0.7s ease both;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-banner:first-child { animation-delay: 0.3s; }
@@ -243,7 +259,7 @@ body.dark .floating-card {
 
 .hero-banner:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 20px 56px rgba(37, 99, 235, 0.16);
 }
 
 /* garis aksen atas */
@@ -254,51 +270,74 @@ body.dark .floating-card {
   height: 3px;
 }
 
-/* --- Varian Flash Sale --- */
-.banner-flash {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  border-color: #fed7aa;
-}
-.banner-flash::before {
-  background: linear-gradient(90deg, #f97316, #ef4444);
-}
-
-/* --- Varian Bundle --- */
-.banner-bundle {
-  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
-  border-color: #ddd6fe;
-}
-.banner-bundle::before {
-  background: linear-gradient(90deg, #7c3aed, #6366f1);
+/* dekorasi bulat blur di pojok kanan bawah */
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  opacity: 0.12;
+  pointer-events: none;
 }
 
-/* --- Tag (label atas) --- */
+/* --- Varian Lifetime --- */
+.banner-lifetime {
+  background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 60%, #fde68a 100%);
+  border-color: #fcd34d;
+}
+.banner-lifetime::before {
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+}
+.banner-lifetime::after {
+  background: #f59e0b;
+}
+
+/* --- Varian Yearly --- */
+.banner-yearly {
+  background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 60%, #c7d2fe 100%);
+  border-color: #a5b4fc;
+}
+.banner-yearly::before {
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+}
+.banner-yearly::after {
+  background: #6366f1;
+}
+
+/* --- Tag pill --- */
 .hb-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 12px;
+  letter-spacing: 1px;
   padding: 4px 10px;
   border-radius: 999px;
+  margin-bottom: 10px;
+  width: fit-content;
 }
 
-.banner-flash .hb-tag  { background: #f97316; color: white; }
-.banner-bundle .hb-tag { background: #7c3aed; color: white; }
+.banner-lifetime .hb-tag { background: #f59e0b; color: white; }
+.banner-yearly .hb-tag   { background: #6366f1; color: white; }
 
-/* --- Timer di dalam tag --- */
-.hb-timer {
-  font-family: var(--font-display);
+/* --- Eyebrow text --- */
+.hb-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 6px;
 }
+
+.banner-lifetime .hb-eyebrow { color: #b45309; }
+.banner-yearly .hb-eyebrow   { color: #4338ca; }
 
 /* --- Title --- */
 .hb-title {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.25;
@@ -309,46 +348,48 @@ body.dark .floating-card {
 .hb-desc {
   font-size: 13px;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
-
-/* --- Meta info --- */
-.hb-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  line-height: 1.65;
   margin-bottom: 14px;
-  flex-wrap: wrap;
 }
 
-.hb-meta-item {
+/* --- Feature list --- */
+.hb-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 12px;
+  margin-bottom: 16px;
+}
+
+.hb-feature {
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
-.hb-meta-dot {
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  background: var(--text-muted);
-  opacity: 0.5;
-}
+.banner-lifetime .hb-feature { color: #92400e; }
+.banner-yearly .hb-feature   { color: #3730a3; }
 
 /* --- Harga --- */
 .hb-price-row {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   flex-wrap: wrap;
 }
 
 .hb-price-new {
   font-family: var(--font-display);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  color: var(--accent-blue);
+  color: var(--text-primary);
+}
+
+.hb-per {
+  font-size: 13px;
+  font-weight: 400;
+  font-family: var(--font-body);
+  color: var(--text-muted);
 }
 
 .hb-price-old {
@@ -358,63 +399,98 @@ body.dark .floating-card {
 }
 
 .hb-discount {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
-  background: #fef2f2;
-  color: #ef4444;
-  border: 1px solid #fecaca;
-  padding: 2px 8px;
+  padding: 3px 8px;
   border-radius: 999px;
+}
+
+.banner-lifetime .hb-discount {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+}
+
+.banner-yearly .hb-discount {
+  background: #e0e7ff;
+  color: #4338ca;
+  border: 1px solid #a5b4fc;
+}
+
+/* --- Note kecil di bawah harga --- */
+.hb-monthly-note {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-style: italic;
 }
 
 /* --- Tombol --- */
 .hb-btn {
   width: 100%;
-  padding: 11px 0;
+  padding: 12px 0;
   border-radius: var(--radius-md);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
-  background: var(--accent-blue);
-  color: white;
   border: none;
   transition: var(--transition);
-}
-.hb-btn:hover {
-  background: var(--accent-blue-dim);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  margin-top: auto;
+  letter-spacing: 0.3px;
 }
 
-.hb-btn-purple {
-  background: #7c3aed;
+.banner-lifetime .hb-btn {
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+  color: white;
 }
-.hb-btn-purple:hover {
-  background: #6d28d9;
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+.banner-lifetime .hb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.hb-btn-indigo {
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  color: white;
+}
+.hb-btn-indigo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
 }
 
 /* --- Dark Mode --- */
-body.dark .banner-flash {
-  background: linear-gradient(135deg, #2a1810 0%, #3a2010 100%);
-  border-color: #5a3020;
+body.dark .banner-lifetime {
+  background: linear-gradient(145deg, #2a1f08 0%, #3a2a0a 60%, #4a350c 100%);
+  border-color: #7a5a10;
 }
-body.dark .banner-bundle {
-  background: linear-gradient(135deg, #1a1030 0%, #251540 100%);
-  border-color: #352560;
+body.dark .banner-yearly {
+  background: linear-gradient(145deg, #0f1030 0%, #151840 60%, #1c2050 100%);
+  border-color: #303880;
 }
-body.dark .hb-title { color: var(--text-primary); }
+body.dark .hb-title          { color: var(--text-primary); }
+body.dark .hb-desc            { color: var(--text-secondary); }
+body.dark .banner-lifetime .hb-eyebrow { color: #fbbf24; }
+body.dark .banner-yearly .hb-eyebrow   { color: #818cf8; }
+body.dark .banner-lifetime .hb-feature { color: #fbbf24; }
+body.dark .banner-yearly .hb-feature   { color: #818cf8; }
+body.dark .banner-lifetime .hb-discount {
+  background: #3a2a08; color: #fbbf24; border-color: #7a5a10;
+}
+body.dark .banner-yearly .hb-discount {
+  background: #151840; color: #818cf8; border-color: #303880;
+}
 
 /* --- Responsive --- */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .hero {
     flex-direction: column;
     text-align: center;
     padding: 100px 24px 60px;
+    gap: 48px;
   }
-  .hero-content { max-width: 100%; }
-  .hero-cta     { justify-content: center; }
-  .hero-stats   { justify-content: center; }
-  .hero-visual  { max-width: 100%; width: 100%; flex-direction: row; }
+  .hero-content  { max-width: 100%; }
+  .hero-cta      { justify-content: center; }
+  .hero-stats    { justify-content: center; }
+  .hero-visual   { flex-direction: row; max-width: 100%; }
+  .hb-features   { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {

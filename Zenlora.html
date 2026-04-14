@@ -7,7 +7,6 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- CSS — base harus paling atas karena file lain pakai variabelnya -->
   <link rel="stylesheet" href="assets/css/base.css" />
@@ -82,49 +81,51 @@
       </div>
     </div>
 
-    <!-- TAMBAH setelah </div> penutup .hero-content -->
+    <!-- GANTI seluruh div.hero-visual dengan ini -->
     <div class="hero-visual">
-  <!-- Banner 1: Flash Sale -->
-      <div class="hero-banner banner-flash">
-        <div class="hb-tag">Flash Sale — Berakhir dalam <span class="hb-timer" id="heroTimer1"></span></div>
-        <div class="hb-title">Full Stack React & Node.js</div>
-        <div class="hb-desc">Dari nol sampai deploy production. 200+ video, proyek nyata, sertifikat resmi.</div>
-        <div class="hb-meta">
-          <span class="hb-meta-item">210 pelajaran</span>
-          <span class="hb-meta-dot"></span>
-          <span class="hb-meta-item">48 jam konten</span>
-          <span class="hb-meta-dot"></span>
-          <span class="hb-meta-item">12.800 pelajar</span>
+
+    <!-- Banner 1: Lifetime Access -->
+      <div class="hero-banner banner-lifetime">
+        <div class="hb-tag">Lifetime Access</div>
+        <div class="hb-eyebrow">Akses Seumur Hidup</div>
+        <div class="hb-title">Project Management Professional</div>
+        <div class="hb-desc">Kuasai manajemen proyek dari dasar hingga mahir. Cocok untuk semua profesi — dari pelajar, karyawan, hingga pemilik bisnis. Sekali bayar, belajar selamanya.</div>
+        <div class="hb-features">
+          <div class="hb-feature">✓ Agile, Scrum & Kanban</div>
+          <div class="hb-feature">✓ Leadership & Team Management</div>
+          <div class="hb-feature">✓ Tools: Jira, Notion, Trello</div>
+          <div class="hb-feature">✓ Sertifikat resmi + LinkedIn</div>
         </div>
         <div class="hb-price-row">
-          <span class="hb-price-new">Rp 49.000</span>
-          <span class="hb-price-old">Rp 599.000</span>
-          <span class="hb-discount">Hemat 92%</span>
+          <span class="hb-price-new">Rp 499.000</span>
+          <span class="hb-price-old">Rp 1.299.000</span>
+          <span class="hb-discount">Bayar Sekali</span>
         </div>
-        <button class="hb-btn">Daftar Sekarang</button>
+        <button class="hb-btn">Beli Sekarang — Akses Selamanya</button>
       </div>
 
-  <!-- Banner 2: Bundle Deal -->
-      <div class="hero-banner banner-bundle">
-        <div class="hb-tag">Bundle Deal — 3 Kursus 1 Harga</div>
-        <div class="hb-title">UI/UX + Figma + Illustrator</div>
-        <div class="hb-desc">Paket lengkap desain profesional. Kuasai tools industri dari nol hingga portfolio siap kerja.</div>
-        <div class="hb-meta">
-          <span class="hb-meta-item">3 kursus</span>
-          <span class="hb-meta-dot"></span>
-          <span class="hb-meta-item">99 jam konten</span>
-          <span class="hb-meta-dot"></span>
-          <span class="hb-meta-item">Hemat Rp 500.000</span>
+      <!-- Banner 2: Yearly Plan -->
+     <div class="hero-banner banner-yearly">
+        <div class="hb-tag">Langganan Tahunan</div>
+        <div class="hb-eyebrow">Akses Semua Kursus</div>
+        <div class="hb-title">Zenlora Pro — Annual Plan</div>
+        <div class="hb-desc">Akses tak terbatas ke 2.400+ kursus selama satu tahun penuh. Lebih hemat 67% dibanding bayar bulanan.</div>
+        <div class="hb-features">
+          <div class="hb-feature">✓ 2.400+ kursus semua kategori</div>
+          <div class="hb-feature">✓ Download materi offline</div>
+          <div class="hb-feature">✓ Sertifikat semua kursus</div>
+          <div class="hb-feature">✓ Akses komunitas eksklusif</div>
         </div>
         <div class="hb-price-row">
-          <span class="hb-price-new">Rp 299.000</span>
-          <span class="hb-price-old">Rp 799.000</span>
-          <span class="hb-discount">Hemat 63%</span>
+          <span class="hb-price-new">Rp 799.000<span class="hb-per">/tahun</span></span>
+          <span class="hb-price-old">Rp 2.388.000</span>
+          <span class="hb-discount">Hemat 67%</span>
         </div>
-        <button class="hb-btn hb-btn-purple">Ambil Bundle</button>
+        <div class="hb-monthly-note">Setara Rp 66.583 per bulan</div>
+        <button class="hb-btn hb-btn-indigo">Mulai Berlangganan</button>
       </div>
     </div>
-    </section>
+  </section>
 
   <!-- ===== BROWSE COURSES ===== -->
   <section class="section">
