@@ -17,8 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
   setupLoadMore();      // tombol muat lebih banyak (courses.js)
   setupDarkMode();     // toggle dark mode (navbar.js)
   setupPromo();     // scroll promo strip & countdown timer (promo.js)
+  setupMarquee();   // setup marquee (marquee.js)
   animateOnScroll();    // fade-in saat elemen masuk viewport
 });
+
+// --- Marquee: duplikat konten agar loop seamless ---
+function setupMarquee() {
+  const track = document.getElementById("marqueeTrack");
+  if (!track) return;
+
+  // clone semua card dan append lagi
+  // sehingga saat animasi sampai -50% terasa seamless
+  const cards = Array.from(track.children);
+  cards.forEach(card => {
+    const clone = card.cloneNode(true);
+    track.appendChild(clone);
+  });
+}
+
 
 // --- Particles: titik-titik melayang di hero ---
 function createParticles() {
@@ -73,3 +89,4 @@ function animateOnScroll() {
     observer.observe(el);
   });
 }
+

@@ -12,8 +12,8 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(37,99,235,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(14,165,233,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(26,58,92,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 80%, rgba(201,146,42,0.06) 0%, transparent 50%),
     var(--bg-primary);
 }
 
@@ -38,12 +38,7 @@
 }
 
 .particle {
-  position: absolute;
-  border-radius: 50%;
-  background: var(--accent-blue);
-  animation: float-particle linear infinite;
-  opacity: 0;
-}
+   background: var(--accent-blue); }
 
 @keyframes float-particle {
   0%   { transform: translateY(100vh) scale(0); opacity: 0; }
@@ -85,7 +80,7 @@
 
 /* Gradient text untuk bagian judul berwarna */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -168,6 +163,10 @@
   height: 40px;
   background: var(--border);
 }
+
+.orb-1 { background: var(--accent-blue); }
+.orb-2 { background: var(--accent-gold); }
+.orb-3 { background: var(--accent-indigo); }
 
 /* --- Responsive --- */
 @media (max-width: 1024px) {
@@ -284,22 +283,23 @@ body.dark .floating-card {
 /* --- Varian Lifetime --- */
 .banner-lifetime {
   background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 60%, #fde68a 100%);
-  border-color: #fcd34d;
+  border-color: #e8b84b;
 }
 .banner-lifetime::before {
-  background: linear-gradient(90deg, #f59e0b, #f97316);
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));
 }
+
 .banner-lifetime::after {
   background: #f59e0b;
 }
 
 /* --- Varian Yearly --- */
 .banner-yearly {
-  background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 60%, #c7d2fe 100%);
-  border-color: #a5b4fc;
+  background: linear-gradient(145deg, #f0f4f8 0%, #dce8f0 60%, #c8dce8 100%);
+  border-color: #a0c0d8;
 }
 .banner-yearly::before {
-  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
 }
 .banner-yearly::after {
   background: #6366f1;
@@ -319,8 +319,8 @@ body.dark .floating-card {
   width: fit-content;
 }
 
-.banner-lifetime .hb-tag { background: #f59e0b; color: white; }
-.banner-yearly .hb-tag   { background: #6366f1; color: white; }
+.banner-lifetime .hb-tag { background: var(--accent-gold); color: white; }
+.banner-yearly .hb-tag   { background: var(--accent-blue); color: white; }
 
 /* --- Eyebrow text --- */
 .hb-eyebrow {
@@ -331,8 +331,8 @@ body.dark .floating-card {
   margin-bottom: 6px;
 }
 
-.banner-lifetime .hb-eyebrow { color: #b45309; }
-.banner-yearly .hb-eyebrow   { color: #4338ca; }
+.banner-lifetime .hb-eyebrow { color: #92621a; }
+.banner-yearly .hb-eyebrow   { color: var(--accent-blue); }
 
 /* --- Title --- */
 .hb-title {
@@ -366,8 +366,8 @@ body.dark .floating-card {
   color: var(--text-secondary);
 }
 
-.banner-lifetime .hb-feature { color: #92400e; }
-.banner-yearly .hb-feature   { color: #3730a3; }
+.banner-lifetime .hb-feature { color: #7a5218; }
+.banner-yearly .hb-feature   { color: #1a3a5c; }
 
 /* --- Harga --- */
 .hb-price-row {
@@ -406,15 +406,10 @@ body.dark .floating-card {
 }
 
 .banner-lifetime .hb-discount {
-  background: #fef3c7;
-  color: #b45309;
-  border: 1px solid #fcd34d;
+  background: #fef3c7; color: #92621a; border: 1px solid #e8b84b;
 }
-
 .banner-yearly .hb-discount {
-  background: #e0e7ff;
-  color: #4338ca;
-  border: 1px solid #a5b4fc;
+  background: #dce8f0; color: #1a3a5c; border: 1px solid #a0c0d8;
 }
 
 /* --- Note kecil di bawah harga --- */
@@ -439,43 +434,39 @@ body.dark .floating-card {
 }
 
 .banner-lifetime .hb-btn {
-  background: linear-gradient(90deg, #f59e0b, #f97316);
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange));
   color: white;
 }
 .banner-lifetime .hb-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 6px 20px rgba(201, 146, 42, 0.4);
 }
 
 .hb-btn-indigo {
-  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
   color: white;
 }
 .hb-btn-indigo:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 6px 20px rgba(26, 58, 92, 0.35);
 }
 
 /* --- Dark Mode --- */
 body.dark .banner-lifetime {
   background: linear-gradient(145deg, #2a1f08 0%, #3a2a0a 60%, #4a350c 100%);
-  border-color: #7a5a10;
+  border-color: #6a4e14;
 }
 body.dark .banner-yearly {
-  background: linear-gradient(145deg, #0f1030 0%, #151840 60%, #1c2050 100%);
-  border-color: #303880;
+  background: linear-gradient(145deg, #0e1a24 0%, #142030 60%, #1a2a3e 100%);
+  border-color: #254060;
 }
-body.dark .hb-title          { color: var(--text-primary); }
-body.dark .hb-desc            { color: var(--text-secondary); }
-body.dark .banner-lifetime .hb-eyebrow { color: #fbbf24; }
-body.dark .banner-yearly .hb-eyebrow   { color: #818cf8; }
-body.dark .banner-lifetime .hb-feature { color: #fbbf24; }
-body.dark .banner-yearly .hb-feature   { color: #818cf8; }
+body.dark .banner-lifetime .hb-eyebrow { color: var(--accent-gold); }
+body.dark .banner-yearly .hb-eyebrow   { color: var(--accent-blue); }
+body.dark .banner-lifetime .hb-feature { color: var(--accent-gold-light); }
+body.dark .banner-yearly .hb-feature   { color: var(--accent-blue-light); }
 body.dark .banner-lifetime .hb-discount {
-  background: #3a2a08; color: #fbbf24; border-color: #7a5a10;
+  background: #3a2a08; color: var(--accent-gold); border-color: #6a4e14;
 }
 body.dark .banner-yearly .hb-discount {
-  background: #151840; color: #818cf8; border-color: #303880;
+  background: #142030; color: var(--accent-blue-light); border-color: #254060;
 }
 
 /* --- Responsive --- */

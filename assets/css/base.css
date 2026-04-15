@@ -6,37 +6,39 @@
 
 /* --- CSS Variables / Design Tokens --- */
 :root {
-  /* Background */
-  --bg-primary: #f0f4ff;
-  --bg-secondary: #e8eeff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f5f8ff;
-  --bg-elevated: #edf1ff;
+  /* Background — warm off-white dengan hint krem */
+  --bg-primary:   #fafaf8;
+  --bg-secondary: #f4f3ef;
+  --bg-card:      #ffffff;
+  --bg-card-hover:#f8f7f4;
+  --bg-elevated:  #eeecea;
 
-  /* Accent Colors */
-  --accent-blue: #2563eb;
-  --accent-blue-dim: #1d4ed8;
-  --accent-cyan: #0ea5e9;
-  --accent-blue-light: #60a5fa;
-  --accent-indigo: #6366f1;
-  --accent-yellow: #f59e0b;
-  --accent-orange: #f97316;
-  --accent-green: #10b981;
-  --accent-pink: #ec4899;
+  /* Accent — deep navy + gold sebagai aksen premium */
+  --accent-blue:       #1a3a5c;
+  --accent-blue-dim:   #142f4a;
+  --accent-cyan:       #2e7d9e;
+  --accent-blue-light: #4a90b8;
+  --accent-indigo:     #2d4a7a;
+  --accent-gold:       #c9922a;
+  --accent-gold-light: #e8b84b;
+  --accent-yellow:     #d4a017;
+  --accent-orange:     #c4622d;
+  --accent-green:      #2d7d5a;
+  --accent-pink:       #a8445a;
 
   /* Text */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary:   #1a1a18;
+  --text-secondary: #4a4a44;
+  --text-muted:     #8a8880;
   --text-on-accent: #ffffff;
 
   /* Border */
-  --border: #cbd5e1;
-  --border-glow: rgba(37, 99, 235, 0.25);
+  --border:      #dddbd4;
+  --border-glow: rgba(26, 58, 92, 0.2);
 
   /* Shadow */
-  --shadow-card: 0 4px 20px rgba(37, 99, 235, 0.08);
-  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.15);
+  --shadow-card: 0 4px 24px rgba(26, 58, 92, 0.07);
+  --shadow-glow: 0 0 32px rgba(26, 58, 92, 0.12);
 
   /* Border Radius */
   --radius-sm: 8px;
@@ -46,7 +48,7 @@
 
   /* Typography */
   --font-display: 'Space Mono', monospace;
-  --font-body: 'Nunito', sans-serif;
+  --font-body:    'Nunito', sans-serif;
 
   /* Transition */
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -197,26 +199,31 @@ select {
 }
 
 /* ============================================================
-   DARK MODE — override semua CSS variables saat body.dark
+   DARK MODE
    ============================================================ */
-
 body.dark {
-  --bg-primary: #0f1117;
-  --bg-secondary: #161b27;
-  --bg-card: #1a2035;
-  --bg-card-hover: #1f2740;
-  --bg-elevated: #212840;
+  --bg-primary:   #12110f;
+  --bg-secondary: #1a1916;
+  --bg-card:      #201f1c;
+  --bg-card-hover:#262421;
+  --bg-elevated:  #2c2a26;
 
-  --text-primary: #e8eaf6;
-  --text-secondary: #9aa5c4;
-  --text-muted: #5a6480;
+  --accent-blue:       #4a90b8;
+  --accent-blue-dim:   #3a7a9e;
+  --accent-cyan:       #5ab0d0;
+  --accent-blue-light: #7ab8d0;
+  --accent-gold:       #e8b84b;
+  --accent-gold-light: #f0cc70;
 
-  --border: #252d45;
-  --border-glow: rgba(37, 99, 235, 0.3);
+  --text-primary:   #f0ede8;
+  --text-secondary: #b0ada6;
+  --text-muted:     #6a6760;
 
-  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 30px rgba(37, 99, 235, 0.2);
+  --border:      #2e2c28;
+  --border-glow: rgba(74, 144, 184, 0.25);
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 32px rgba(74, 144, 184, 0.15);
 }
 
-/* background body ikut berubah */
 body.dark { background: var(--bg-primary); }

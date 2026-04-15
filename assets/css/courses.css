@@ -137,11 +137,12 @@
   letter-spacing: 0.5px;
 }
 
-.badge-hot        { background: #f97316; color: white; }
-.badge-new        { background: var(--accent-cyan); color: white; }
-.badge-bestseller { background: var(--accent-yellow); color: white; }
-.badge-free       { background: var(--accent-green); color: white; }
-.badge-updated    { background: var(--accent-indigo); color: white; }
+/* GANTI semua badge */
+.badge-hot        { background: var(--accent-orange); color: white; }
+.badge-new        { background: var(--accent-cyan);   color: white; }
+.badge-bestseller { background: var(--accent-gold);   color: white; }
+.badge-free       { background: var(--accent-green);  color: white; }
+.badge-updated    { background: var(--accent-indigo);  color: white; }
 
 /* --- Wishlist Button --- */
 .course-wishlist {
