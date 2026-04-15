@@ -289,3 +289,117 @@ body.dark .sort-select  { background: var(--bg-elevated); color: var(--text-prim
 body.dark .view-btn     { background: var(--bg-elevated); }
 body.dark .btn-load-more{ background: var(--bg-elevated); }
 body.dark .course-wishlist { background: rgba(26, 32, 53, 0.9); }
+
+/* ============================================================
+   RECOMMENDED HEADER
+   ============================================================ */
+
+.section-recommended {
+  /* beri jarak dari 2 navbar (64px + 44px) */
+  padding-top: 40px;
+}
+
+.recommended-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   COURSE CARD — compact & clean version
+   ============================================================ */
+
+/* Override card grid jadi lebih banyak kolom */
+.course-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* Override card itu sendiri */
+.course-card {
+  border-radius: var(--radius-md);
+}
+
+/* Thumbnail lebih kecil */
+.course-thumbnail {
+  height: 120px;
+}
+
+.course-thumbnail-placeholder {
+  font-size: 36px;
+}
+
+/* Body lebih compact */
+.course-body {
+  padding: 12px 14px 8px;
+}
+
+.course-category {
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+.course-title {
+  font-size: 13px;
+  margin-bottom: 5px;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.course-instructor {
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.course-rating {
+  margin-bottom: 6px;
+}
+
+.rating-stars { font-size: 10px; }
+.rating-num   { font-size: 11px; }
+.rating-count { font-size: 11px; }
+
+/* Sembunyikan meta (durasi, pelajaran, pelajar) biar lebih clean */
+.course-meta { display: none; }
+
+/* Footer lebih compact */
+.course-footer {
+  padding: 8px 14px;
+}
+
+.price-current  { font-size: 14px; }
+.price-original { font-size: 11px; }
+.price-free     { font-size: 14px; }
+
+.btn-enroll {
+  font-size: 11px;
+  padding: 5px 12px;
+}
+
+/* Badge lebih kecil */
+.course-badge {
+  font-size: 9px;
+  padding: 3px 7px;
+}
+
+/* Wishlist lebih kecil */
+.course-wishlist {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
+}
+
+/* List view tetap compact */
+.course-grid.list-view { grid-template-columns: 1fr; }
+.course-grid.list-view .course-card      { display: flex; flex-direction: row; }
+.course-grid.list-view .course-thumbnail { width: 160px; flex-shrink: 0; height: auto; min-height: 120px; }
+.course-grid.list-view .course-body      { flex: 1; }
+.course-grid.list-view .course-meta      { display: flex; } /* tampilkan lagi di list view */
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .course-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}

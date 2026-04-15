@@ -66,12 +66,19 @@ html {
 }
 
 body {
+  padding-top: 108px;
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* hero tidak butuh padding tambahan karena sudah ada padding sendiri */
+.hero {
+  margin-top: -108px;
+  padding-top: 172px;
 }
 
 a {

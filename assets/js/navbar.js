@@ -2,30 +2,29 @@
 // NAVBAR — scroll hide/show, scrolled state, mobile menu
 // ============================================================
 
+// GANTI fungsi setupNavbar()
 function setupNavbar() {
-  const navbar     = document.getElementById("navbar");
+  const navbar  = document.getElementById("navbar");
+  const catNav  = document.getElementById("catNav");
   const mobileMenu = document.getElementById("mobileMenu");
-  let lastScrollY  = window.scrollY;
-  let ticking      = false;
+  let lastScrollY = window.scrollY;
+  let ticking     = false;
 
   window.addEventListener("scroll", () => {
-    // requestAnimationFrame agar tidak boros performa
     if (!ticking) {
       requestAnimationFrame(() => {
         const currentScrollY = window.scrollY;
 
-        // sembunyikan navbar saat scroll ke bawah lebih dari 80px
         if (currentScrollY > lastScrollY && currentScrollY > 80) {
           navbar.classList.add("hidden");
-          // tutup mobile menu jika navbar disembunyikan
+          catNav.classList.add("hidden");
           mobileMenu.classList.remove("open");
         } else {
           navbar.classList.remove("hidden");
+          catNav.classList.remove("hidden");
         }
 
-        // tambahkan shadow saat halaman sudah di-scroll
         navbar.classList.toggle("scrolled", currentScrollY > 40);
-
         lastScrollY = currentScrollY;
         ticking     = false;
       });

@@ -10,21 +10,18 @@ let currentView     = "grid";
 let wishlist        = new Set(); // simpan id kursus yang di-wishlist
 let displayCount    = 6;        // jumlah kursus yang ditampilkan
 
-// --- Setup: Filter Tabs ---
+// GANTI fungsi setupFilters()
 function setupFilters() {
-  document.querySelectorAll(".filter-tab").forEach(tab => {
+  document.querySelectorAll(".cat-tab").forEach(tab => {
     tab.addEventListener("click", () => {
-      // reset tab aktif
-      document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".cat-tab").forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
-
       currentCategory = tab.dataset.cat;
-      displayCount    = 6; // reset ke halaman pertama saat ganti filter
+      displayCount    = 6;
       renderCourses();
     });
   });
 
-  // re-render saat sort berubah
   document.getElementById("sortSelect").addEventListener("change", renderCourses);
 }
 
