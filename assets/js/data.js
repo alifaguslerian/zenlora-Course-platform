@@ -160,3 +160,24 @@ const INSTRUCTORS = [
   { name: "Kevin Pratama",  specialty: "Mobile Developer",     avatar: "KP", courses: 4,  students: "11K", rating: "4.8" },
   { name: "Fajar Ramadhan", specialty: "Game Developer",       avatar: "FR", courses: 7,  students: "19K", rating: "4.9" },
 ];
+
+// ============================================================
+// SYNC — load data dari localStorage jika ada (dari admin panel)
+// Jika belum ada, pakai array COURSES di atas sebagai default
+// dan simpan ke localStorage sekalian
+// ============================================================
+
+(function syncCourses() {
+  const saved = localStorage.getItem("zenlora-courses");
+
+  if (saved) {
+    // ada data dari admin, timpa array COURSES
+    const parsed = JSON.parse(saved);
+    COURSES.length = 0;
+    parsed.forEach(c => COURSES.push(c));
+  } else {
+    // belum ada, simpan data default ke localStorage
+    // supaya admin panel dan website pakai sumber yang sama
+    localStorage.setItem("zenlora-courses", JSON.stringify(COURSES));
+  }
+})();
