@@ -111,79 +111,43 @@
    VARIAN WARNA TIAP TIPE CARD
    ============================================================ */
 
-/* AI / ML */
-.mq-ai {
-  background: linear-gradient(135deg, #f0f6ff 0%, #e0edff 100%);
-  border-color: #b8d4f8;
-}
-.mq-ai .mq-icon {
-  background: var(--accent-blue);
-  color: white;
-}
-.mq-ai .mq-label { color: var(--accent-blue); }
+/* GANTI semua varian warna card dari .mq-ai sampai .mq-cert */
 
-/* Promo / Diskon */
-.mq-promo {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border-color: #fcd34d;
+.mq-ai, .mq-promo, .mq-new, .mq-stat, .mq-bundle, .mq-cert {
+  background: var(--bg-card);
+  border-color: var(--border);
 }
-.mq-promo .mq-icon {
-  background: var(--accent-gold);
-  color: white;
-}
-.mq-promo .mq-label { color: var(--accent-gold); }
 
-/* New / Baru */
-.mq-new {
-  background: linear-gradient(135deg, #f0fdf6 0%, #dcfce7 100%);
-  border-color: #86efac;
-}
-.mq-new .mq-icon {
-  background: var(--accent-green);
-  color: white;
-}
-.mq-new .mq-label { color: var(--accent-green); }
+.mq-ai .mq-icon     { background: var(--bg-elevated); color: var(--accent-blue); }
+.mq-promo .mq-icon  { background: var(--bg-elevated); color: var(--accent-gold); }
+.mq-new .mq-icon    { background: var(--bg-elevated); color: var(--accent-green); }
+.mq-stat .mq-icon   { background: var(--bg-elevated); color: var(--accent-indigo); }
+.mq-bundle .mq-icon { background: var(--bg-elevated); color: var(--accent-orange); }
+.mq-cert .mq-icon   { background: var(--bg-elevated); color: var(--accent-cyan); }
 
-/* Stat / Angka */
-.mq-stat {
-  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-  border-color: #d8b4fe;
-}
-.mq-stat .mq-icon {
-  background: #7c3aed;
-  color: white;
-  font-size: 10px;
-}
-.mq-stat .mq-label { color: #7c3aed; }
-
-/* Bundle */
-.mq-bundle {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  border-color: #fdba74;
-}
-.mq-bundle .mq-icon {
-  background: var(--accent-orange);
-  color: white;
-  font-size: 9px;
-}
+.mq-ai .mq-label     { color: var(--accent-blue); }
+.mq-promo .mq-label  { color: var(--accent-gold); }
+.mq-new .mq-label    { color: var(--accent-green); }
+.mq-stat .mq-label   { color: var(--accent-indigo); }
 .mq-bundle .mq-label { color: var(--accent-orange); }
+.mq-cert .mq-label   { color: var(--accent-cyan); }
 
-/* Sertifikat */
-.mq-cert {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f4ff 100%);
-  border-color: #7dd3fc;
+/* Dark mode */
+body.dark .mq-ai,
+body.dark .mq-promo,
+body.dark .mq-new,
+body.dark .mq-stat,
+body.dark .mq-bundle,
+body.dark .mq-cert {
+  background: var(--bg-card);
+  border-color: var(--border);
 }
-.mq-cert .mq-icon {
-  background: var(--accent-cyan);
-  color: white;
-}
-.mq-cert .mq-label { color: var(--accent-cyan); }
 
-/* --- Dark Mode --- */
-body.dark .mq-ai     { background: linear-gradient(135deg, #0e1a28 0%, #142030 100%); border-color: #1e3a58; }
-body.dark .mq-promo  { background: linear-gradient(135deg, #1e1608 0%, #2a1e0a 100%); border-color: #4a3810; }
-body.dark .mq-new    { background: linear-gradient(135deg, #081a10 0%, #0e2418 100%); border-color: #1a4028; }
-body.dark .mq-stat   { background: linear-gradient(135deg, #140e20 0%, #1c1430 100%); border-color: #302050; }
-body.dark .mq-bundle { background: linear-gradient(135deg, #1e1008 0%, #2a1608 100%); border-color: #4a2810; }
-body.dark .mq-cert   { background: linear-gradient(135deg, #081420 0%, #0e1e2e 100%); border-color: #183050; }
-body.dark .mq-title  { color: var(--text-primary); }
+body.dark .mq-ai .mq-icon,
+body.dark .mq-promo .mq-icon,
+body.dark .mq-new .mq-icon,
+body.dark .mq-stat .mq-icon,
+body.dark .mq-bundle .mq-icon,
+body.dark .mq-cert .mq-icon {
+  background: var(--bg-elevated);
+}

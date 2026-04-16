@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenlora Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">Z</span>
+      <span class="logo-text">Zen<span class="logo-accent">lora</span></span>
+      <span class="sidebar-badge">Admin</span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="sidebar-item active" data-page="dashboard">
+        <span class="si-icon">&#9732;</span> Dashboard
+      </button>
+      <button class="sidebar-item" data-page="courses">
+        <span class="si-icon">&#9776;</span> Kelola Kursus
+      </button>
+      <button class="sidebar-item" data-page="add-course">
+        <span class="si-icon">&#43;</span> Tambah Kursus
+      </button>
+      <button class="sidebar-item" data-page="instructors">
+        <span class="si-icon">&#9786;</span> Instruktur
+      </button>
+      <button class="sidebar-item" data-page="promo">
+        <span class="si-icon">&#37;</span> Promo & Diskon
+      </button>
+    </nav>
+    <a href="Zenlora.html" class="sidebar-back">&#8592; Kembali ke Website</a>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="admin-main">
+
+    <!-- Topbar -->
+    <div class="admin-topbar">
+      <div class="admin-topbar-left">
+        <button class="sidebar-toggle" id="sidebarToggle">&#9776;</button>
+        <h1 class="admin-page-title" id="pageTitle">Dashboard</h1>
+      </div>
+      <div class="admin-topbar-right">
+        <span class="admin-user">Admin Zenlora</span>
+      </div>
+    </div>
+
+    <!-- ===== PAGE: DASHBOARD ===== -->
+    <div class="admin-page active" id="page-dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:#e0edff;color:var(--accent-blue)">&#9776;</div>
+          <div>
+            <div class="stat-card-num" id="statTotalCourses">12</div>
+            <div class="stat-card-label">Total Kursus</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:#fef3c7;color:var(--accent-gold)">&#9786;</div>
+          <div>
+            <div class="stat-card-num">6</div>
+            <div class="stat-card-label">Instruktur Aktif</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:#dcfce7;color:var(--accent-green)">&#9650;</div>
+          <div>
+            <div class="stat-card-num">180K+</div>
+            <div class="stat-card-label">Total Pelajar</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon" style="background:#f3e8ff;color:#7c3aed">&#37;</div>
+          <div>
+            <div class="stat-card-num">3</div>
+            <div class="stat-card-label">Promo Aktif</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-section-title">Kursus Terbaru</div>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="dashboardTable">
+          <thead>
+            <tr>
+              <th>Judul Kursus</th>
+              <th>Instruktur</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Pelajar</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="dashboardTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PAGE: KELOLA KURSUS ===== -->
+    <div class="admin-page" id="page-courses">
+      <div class="admin-toolbar">
+        <input type="text" class="admin-search" id="courseSearch" placeholder="Cari kursus..." />
+        <button class="btn-admin-primary" onclick="showPage('add-course')">+ Tambah Kursus</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="coursesTable">
+          <thead>
+            <tr>
+              <th>Judul Kursus</th>
+              <th>Instruktur</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Harga Asli</th>
+              <th>Rating</th>
+              <th>Pelajar</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="coursesTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PAGE: TAMBAH / EDIT KURSUS ===== -->
+    <div class="admin-page" id="page-add-course">
+      <div class="form-card">
+        <div class="form-card-header">
+          <h2 id="formTitle">Tambah Kursus Baru</h2>
+          <p>Isi semua informasi kursus di bawah ini</p>
+        </div>
+
+        <input type="hidden" id="editCourseId" />
+
+        <div class="form-grid">
+          <!-- Judul -->
+          <div class="form-group full">
+            <label>Judul Kursus <span class="req">*</span></label>
+            <input type="text" id="fTitle" placeholder="Contoh: Full Stack Web Development dengan React" />
+          </div>
+
+          <!-- Instruktur -->
+          <div class="form-group">
+            <label>Nama Instruktur <span class="req">*</span></label>
+            <input type="text" id="fInstructor" placeholder="Contoh: Budi Santoso" />
+          </div>
+
+          <!-- Inisial Avatar -->
+          <div class="form-group">
+            <label>Inisial Avatar</label>
+            <input type="text" id="fAvatar" placeholder="Contoh: BS" maxlength="3" />
+          </div>
+
+          <!-- Kategori -->
+          <div class="form-group">
+            <label>Kategori <span class="req">*</span></label>
+            <select id="fCategory">
+              <option value="coding">Coding</option>
+              <option value="desain">Desain</option>
+              <option value="bisnis">Bisnis</option>
+              <option value="data">Data Science</option>
+              <option value="ai">AI & ML</option>
+              <option value="game">Game Dev</option>
+              <option value="mobile">Mobile Dev</option>
+            </select>
+          </div>
+
+          <!-- Level -->
+          <div class="form-group">
+            <label>Level</label>
+            <select id="fLevel">
+              <option value="Pemula">Pemula</option>
+              <option value="Menengah">Menengah</option>
+              <option value="Lanjut">Lanjut</option>
+              <option value="Semua Level">Semua Level</option>
+              <option value="Pemula ke Lanjut">Pemula ke Lanjut</option>
+            </select>
+          </div>
+
+          <!-- Harga -->
+          <div class="form-group">
+            <label>Harga Jual (Rp) <span class="req">*</span></label>
+            <input type="number" id="fPrice" placeholder="0 = Gratis" min="0" />
+          </div>
+
+          <!-- Harga Asli -->
+          <div class="form-group">
+            <label>Harga Asli / Coret (Rp)</label>
+            <input type="number" id="fOriginalPrice" placeholder="Contoh: 599000" min="0" />
+          </div>
+
+          <!-- Durasi -->
+          <div class="form-group">
+            <label>Durasi</label>
+            <input type="text" id="fDuration" placeholder="Contoh: 48 jam" />
+          </div>
+
+          <!-- Jumlah Pelajaran -->
+          <div class="form-group">
+            <label>Jumlah Pelajaran</label>
+            <input type="number" id="fLessons" placeholder="Contoh: 210" min="0" />
+          </div>
+
+          <!-- Badge -->
+          <div class="form-group">
+            <label>Badge</label>
+            <select id="fBadge">
+              <option value="bestseller">Bestseller</option>
+              <option value="new">Baru</option>
+              <option value="hot">Populer</option>
+              <option value="free">Gratis</option>
+              <option value="updated">Diperbarui</option>
+            </select>
+          </div>
+
+          <!-- Emoji / Ikon -->
+          <div class="form-group">
+            <label>Ikon Thumbnail</label>
+            <input type="text" id="fEmoji" placeholder="Contoh: WD atau AI" maxlength="4" />
+          </div>
+
+          <!-- Warna Thumbnail -->
+          <div class="form-group">
+            <label>Warna Thumbnail</label>
+            <input type="color" id="fColor" value="#dbeafe" />
+          </div>
+
+          <!-- Deskripsi -->
+          <div class="form-group full">
+            <label>Deskripsi Kursus <span class="req">*</span></label>
+            <textarea id="fDesc" rows="4" placeholder="Jelaskan isi kursus secara singkat..."></textarea>
+          </div>
+
+          <!-- Fitur -->
+          <div class="form-group full">
+            <label>Fitur Kursus <span class="hint">(pisahkan dengan koma)</span></label>
+            <input type="text" id="fFeatures" placeholder="200+ video HD, Sertifikat resmi, Akses seumur hidup" />
+          </div>
+        </div>
+
+        <!-- Preview discount -->
+        <div class="discount-preview" id="discountPreview"></div>
+
+        <div class="form-actions">
+          <button class="btn-admin-secondary" onclick="resetForm()">Reset</button>
+          <button class="btn-admin-primary" onclick="saveCourse()">Simpan Kursus</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE: INSTRUKTUR ===== -->
+    <div class="admin-page" id="page-instructors">
+      <div class="admin-section-title">Daftar Instruktur</div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Avatar</th>
+              <th>Nama</th>
+              <th>Spesialisasi</th>
+              <th>Kursus</th>
+              <th>Pelajar</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody id="instructorTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PAGE: PROMO ===== -->
+    <div class="admin-page" id="page-promo">
+      <div class="admin-section-title">Promo & Diskon Aktif</div>
+      <div class="promo-admin-grid" id="promoAdminGrid"></div>
+    </div>
+
+  </main>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
