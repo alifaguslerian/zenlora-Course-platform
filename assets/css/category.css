@@ -1,0 +1,135 @@
+/* ============================================================
+   CATEGORY PAGE — hero banner per kategori
+   ============================================================ */
+
+/* kompensasi 2 navbar */
+body {
+  padding-top: 108px;
+}
+
+/* --- Category Hero Banner --- */
+.cat-hero {
+  padding: 48px 0 40px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
+/* background berbeda tiap kategori, diset lewat JS */
+.cat-hero.cat-coding  { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+.cat-hero.cat-desain  { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); }
+.cat-hero.cat-bisnis  { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); }
+.cat-hero.cat-data    { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); }
+.cat-hero.cat-ai      { background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); }
+.cat-hero.cat-game    { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); }
+.cat-hero.cat-mobile  { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); }
+
+/* garis warna di atas */
+.cat-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.cat-hero.cat-coding::before  { background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); }
+.cat-hero.cat-desain::before  { background: linear-gradient(90deg, #7c3aed, #6366f1); }
+.cat-hero.cat-bisnis::before  { background: linear-gradient(90deg, var(--accent-gold), var(--accent-orange)); }
+.cat-hero.cat-data::before    { background: linear-gradient(90deg, var(--accent-orange), #f59e0b); }
+.cat-hero.cat-ai::before      { background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue)); }
+.cat-hero.cat-game::before    { background: linear-gradient(90deg, var(--accent-pink), #ec4899); }
+.cat-hero.cat-mobile::before  { background: linear-gradient(90deg, var(--accent-green), #059669); }
+
+/* --- Breadcrumb --- */
+.cat-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.cat-hero-breadcrumb a {
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+.cat-hero-breadcrumb a:hover { text-decoration: underline; }
+
+/* --- Icon --- */
+.cat-hero-icon {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+}
+
+.cat-coding  .cat-hero-icon { background: var(--accent-blue);   color: white; }
+.cat-desain  .cat-hero-icon { background: #7c3aed;              color: white; }
+.cat-bisnis  .cat-hero-icon { background: var(--accent-gold);   color: white; }
+.cat-data    .cat-hero-icon { background: var(--accent-orange);  color: white; }
+.cat-ai      .cat-hero-icon { background: var(--accent-cyan);   color: white; }
+.cat-game    .cat-hero-icon { background: var(--accent-pink);   color: white; }
+.cat-mobile  .cat-hero-icon { background: var(--accent-green);  color: white; }
+
+/* --- Title & Sub --- */
+.cat-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.cat-hero-sub {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+
+/* --- Stats Row --- */
+.cat-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cat-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-stat-num {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.cat-stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+
+/* --- Dark Mode --- */
+body.dark .cat-hero.cat-coding { background: linear-gradient(135deg, #0e1a28 0%, #142030 100%); }
+body.dark .cat-hero.cat-desain { background: linear-gradient(135deg, #140e20 0%, #1c1430 100%); }
+body.dark .cat-hero.cat-bisnis { background: linear-gradient(135deg, #1e1608 0%, #2a1e0a 100%); }
+body.dark .cat-hero.cat-data   { background: linear-gradient(135deg, #1e1008 0%, #2a1608 100%); }
+body.dark .cat-hero.cat-ai     { background: linear-gradient(135deg, #081420 0%, #0e1e2e 100%); }
+body.dark .cat-hero.cat-game   { background: linear-gradient(135deg, #200a18 0%, #300e22 100%); }
+body.dark .cat-hero.cat-mobile { background: linear-gradient(135deg, #081a10 0%, #0e2418 100%); }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .cat-hero { padding: 32px 0 28px; }
+}

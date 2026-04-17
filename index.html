@@ -8,7 +8,6 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
-    <!-- CSS — base harus paling atas karena file lain pakai variabelnya -->
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/navbar.css" />
     <link rel="stylesheet" href="assets/css/hero.css" />
@@ -18,6 +17,7 @@
     <link rel="stylesheet" href="assets/css/instructors.css" />
     <link rel="stylesheet" href="assets/css/modal.css" />
     <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/category.css" />
   </head>
   <body>
     <!-- ===== NAVBAR ===== -->
@@ -52,16 +52,16 @@
     </nav>
 
     <!-- ===== CATEGORY NAV ===== -->
-    <div class="cat-nav" id="catNav">
+    <div class="cat-nav">
       <div class="cat-nav-inner">
-        <button class="cat-tab active" data-cat="semua">Semua</button>
-        <button class="cat-tab" data-cat="coding">Coding</button>
-        <button class="cat-tab" data-cat="desain">Desain</button>
-        <button class="cat-tab" data-cat="bisnis">Bisnis</button>
-        <button class="cat-tab" data-cat="data">Data Science</button>
-        <button class="cat-tab" data-cat="ai">AI & ML</button>
-        <button class="cat-tab" data-cat="game">Game Dev</button>
-        <button class="cat-tab" data-cat="mobile">Mobile Dev</button>
+        <a href="index.html" class="cat-tab active">Home</a>
+        <a href="category.html?cat=coding" class="cat-tab" target="_blank">Coding</a>
+        <a href="category.html?cat=desain" class="cat-tab" target="_blank">Desain</a>
+        <a href="category.html?cat=bisnis" class="cat-tab" target="_blank">Bisnis</a>
+        <a href="category.html?cat=data" class="cat-tab" target="_blank">Data Science</a>
+        <a href="category.html?cat=ai" class="cat-tab" target="_blank">AI & ML</a>
+        <a href="category.html?cat=game" class="cat-tab" target="_blank">Game Dev</a>
+        <a href="category.html?cat=mobile" class="cat-tab" target="_blank">Mobile Dev</a>
       </div>
     </div>
 
@@ -467,6 +467,7 @@
     <script src="assets/js/courses.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/promo.js"></script>
+    <script src="assets/js/category.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

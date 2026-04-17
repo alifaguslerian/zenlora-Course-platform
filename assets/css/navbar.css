@@ -233,6 +233,13 @@ body.dark .mobile-menu    { background: var(--bg-secondary); }
   flex-shrink: 0;
 }
 
+/* TAMBAH — cat-tab sebagai link <a> */
+.cat-tab {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .cat-tab:hover {
   color: var(--text-primary);
   background: var(--bg-elevated);
