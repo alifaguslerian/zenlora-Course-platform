@@ -152,13 +152,50 @@ const COURSES = [
 ];
 
 // --- Daftar Instruktur ---
+// GANTI seluruh array INSTRUCTORS
 const INSTRUCTORS = [
-  { name: "Budi Santoso",   specialty: "Full Stack Developer", avatar: "BS", courses: 8,  students: "28K", rating: "4.9" },
-  { name: "Sari Putri",     specialty: "UI/UX Designer",       avatar: "SP", courses: 5,  students: "15K", rating: "4.8" },
-  { name: "Dr. Ahmad Fauzi",specialty: "AI & Data Scientist",  avatar: "AF", courses: 12, students: "42K", rating: "4.9" },
-  { name: "Rina Dewi",      specialty: "Digital Marketer",     avatar: "RD", courses: 6,  students: "22K", rating: "4.7" },
-  { name: "Kevin Pratama",  specialty: "Mobile Developer",     avatar: "KP", courses: 4,  students: "11K", rating: "4.8" },
-  { name: "Fajar Ramadhan", specialty: "Game Developer",       avatar: "FR", courses: 7,  students: "19K", rating: "4.9" },
+  {
+    name: "Budi Santoso",
+    specialty: "Full Stack Developer",
+    avatar: "BS",
+    photo: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // ganti dengan URL foto asli
+    courses: 8, students: "28K", rating: "4.9"
+  },
+  {
+    name: "Sari Putri",
+    specialty: "UI/UX Designer",
+    avatar: "SP",
+    photo: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    courses: 5, students: "15K", rating: "4.8"
+  },
+  {
+    name: "Dr. Ahmad Fauzi",
+    specialty: "AI & Data Scientist",
+    avatar: "AF",
+    photo: "https://plus.unsplash.com/premium_photo-1689977968861-9c91dbb16049?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    courses: 12, students: "42K", rating: "4.9"
+  },
+  {
+    name: "Rina Dewi",
+    specialty: "Digital Marketer",
+    avatar: "RD",
+    photo: "https://plus.unsplash.com/premium_photo-1688740375397-34605b6abe48?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    courses: 6, students: "22K", rating: "4.7"
+  },
+  {
+    name: "Kevin Pratama",
+    specialty: "Mobile Developer",
+    avatar: "KP",
+    photo: "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    courses: 4, students: "11K", rating: "4.8"
+  },
+  {
+    name: "Fajar Ramadhan",
+    specialty: "Game Developer",
+    avatar: "FR",
+    photo: "https://plus.unsplash.com/premium_photo-1689629870780-5d0e655383e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    courses: 7, students: "19K", rating: "4.9"
+  },
 ];
 
 // ============================================================

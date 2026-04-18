@@ -6,23 +6,27 @@
 // --- State ---
 // variabel ini dipakai bersama antar fungsi di file ini
 let currentCategory = "semua";
-let currentView     = "grid";
-let wishlist        = new Set(); // simpan id kursus yang di-wishlist
-let displayCount    = 6;        // jumlah kursus yang ditampilkan
+let currentView = "grid";
+let wishlist = new Set(); // simpan id kursus yang di-wishlist
+let displayCount = 6; // jumlah kursus yang ditampilkan
 
 // GANTI fungsi setupFilters()
 function setupFilters() {
-  document.querySelectorAll(".cat-tab").forEach(tab => {
+  document.querySelectorAll(".cat-tab").forEach((tab) => {
     tab.addEventListener("click", () => {
-      document.querySelectorAll(".cat-tab").forEach(t => t.classList.remove("active"));
+      document
+        .querySelectorAll(".cat-tab")
+        .forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
       currentCategory = tab.dataset.cat;
-      displayCount    = 6;
+      displayCount = 6;
       renderCourses();
     });
   });
 
-  document.getElementById("sortSelect").addEventListener("change", renderCourses);
+  document
+    .getElementById("sortSelect")
+    .addEventListener("change", renderCourses);
 }
 
 // --- Setup: Grid / List View Toggle ---
@@ -63,13 +67,15 @@ function setupLoadMore() {
 
 // --- Render: Semua Course Card ---
 function renderCourses(searchQuery = "") {
-  const grid    = document.getElementById("courseGrid");
+  const grid = document.getElementById("courseGrid");
   const sortVal = document.getElementById("sortSelect").value;
 
   // filter berdasarkan kategori dan keyword pencarian
-  let filtered = COURSES.filter(c => {
-    const catMatch    = currentCategory === "semua" || c.category === currentCategory;
-    const searchMatch = !searchQuery ||
+  let filtered = COURSES.filter((c) => {
+    const catMatch =
+      currentCategory === "semua" || c.category === currentCategory;
+    const searchMatch =
+      !searchQuery ||
       c.title.toLowerCase().includes(searchQuery) ||
       c.instructor.toLowerCase().includes(searchQuery) ||
       c.catLabel.toLowerCase().includes(searchQuery);
@@ -78,10 +84,10 @@ function renderCourses(searchQuery = "") {
 
   // sort berdasarkan pilihan dropdown
   const sortFns = {
-    popular:    (a, b) => b.students - a.students,
-    newest:     (a, b) => b.id - a.id,
-    rating:     (a, b) => b.rating - a.rating,
-    "price-low":(a, b) => a.price - b.price,
+    popular: (a, b) => b.students - a.students,
+    newest: (a, b) => b.id - a.id,
+    rating: (a, b) => b.rating - a.rating,
+    "price-low": (a, b) => a.price - b.price,
   };
   filtered.sort(sortFns[sortVal] || sortFns.popular);
 
@@ -109,7 +115,9 @@ function renderCourses(searchQuery = "") {
     return;
   }
 
-  shown.forEach((course, idx) => grid.appendChild(createCourseCard(course, idx)));
+  shown.forEach((course, idx) =>
+    grid.appendChild(createCourseCard(course, idx)),
+  );
 
   // terapkan view mode yang aktif
   if (currentView === "list") grid.classList.add("list-view");
@@ -122,25 +130,38 @@ function createCourseCard(course, idx) {
   card.className = "course-card";
   card.style.animationDelay = `${idx * 0.07}s`;
 
-  const badgeClass = {
-    hot: "badge-hot", new: "badge-new",
-    bestseller: "badge-bestseller",
-    free: "badge-free", updated: "badge-updated"
-  }[course.badge] || "badge-hot";
+  const badgeClass =
+    {
+      hot: "badge-hot",
+      new: "badge-new",
+      bestseller: "badge-bestseller",
+      free: "badge-free",
+      updated: "badge-updated",
+    }[course.badge] || "badge-hot";
 
-  const priceHTML = course.price === 0
-    ? `<span class="price-free">Gratis</span>`
-    : `<span class="price-current">Rp ${course.price.toLocaleString("id-ID")}</span>
+  const priceHTML =
+    course.price === 0
+      ? `<span class="price-free">Gratis</span>`
+      : `<span class="price-current">Rp ${course.price.toLocaleString("id-ID")}</span>
        <span class="price-original">Rp ${course.originalPrice.toLocaleString("id-ID")}</span>`;
 
   const isWished = wishlist.has(course.id);
 
   card.innerHTML = `
-    <div class="course-thumbnail">
-      <div class="course-thumbnail-placeholder"
-           style="background:${course.color};font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--accent-blue)">
-        ${course.emoji}
-      </div>
+    ${
+      course.image
+        ? `<img src="${course.image}" alt="${course.title}"
+               style="width:100%;height:100%;object-fit:cover"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+           <div class="course-thumbnail-placeholder"
+                style="display:none;background:${course.color};font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--accent-blue)">
+             ${course.emoji}
+           </div>`
+        : `<div class="course-thumbnail-placeholder"
+                style="background:${course.color};font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--accent-blue)">
+             ${course.emoji}
+           </div>`
+    }
       <span class="course-badge ${badgeClass}">${course.badgeLabel}</span>
       <button class="course-wishlist ${isWished ? "active" : ""}" data-id="${course.id}">
         ${isWished ? "♥" : "♡"}
@@ -176,7 +197,9 @@ function createCourseCard(course, idx) {
   // daftar langsung tanpa buka modal
   card.querySelector(".btn-enroll").addEventListener("click", (e) => {
     e.stopPropagation();
-    showToast("Berhasil mendaftar ke kursus: " + course.title.slice(0, 32) + "...");
+    showToast(
+      "Berhasil mendaftar ke kursus: " + course.title.slice(0, 32) + "...",
+    );
   });
 
   // buka modal detail saat card diklik
@@ -188,17 +211,29 @@ function createCourseCard(course, idx) {
 // --- Render: Instruktur ---
 function renderInstructors() {
   const grid = document.getElementById("instructorGrid");
+  if (!grid) return;
 
   INSTRUCTORS.forEach((ins, idx) => {
     const card = document.createElement("div");
     card.className = "instructor-card";
     card.style.animationDelay = `${idx * 0.1}s`;
 
+    // foto atau inisial
+    const avatarHTML = ins.photo
+      ? `<img src="${ins.photo}" alt="${ins.name}"
+             style="width:100%;height:100%;object-fit:cover;border-radius:50%"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+         <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;
+                     font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--accent-blue)">
+           ${ins.avatar}
+         </div>`
+      : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+                     font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--accent-blue)">
+           ${ins.avatar}
+         </div>`;
+
     card.innerHTML = `
-      <div class="instructor-avatar"
-           style="font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--accent-blue)">
-        ${ins.avatar}
-      </div>
+      <div class="instructor-avatar">${avatarHTML}</div>
       <div class="instructor-name">${ins.name}</div>
       <div class="instructor-specialty">${ins.specialty}</div>
       <div class="instructor-stats">
@@ -212,7 +247,6 @@ function renderInstructors() {
     grid.appendChild(card);
   });
 }
-
 // --- Wishlist Toggle ---
 function toggleWishlist(id, btn) {
   if (wishlist.has(id)) {

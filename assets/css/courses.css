@@ -313,10 +313,41 @@ body.dark .course-wishlist { background: rgba(26, 32, 53, 0.9); }
    ============================================================ */
 
 /* Override card grid jadi lebih banyak kolom */
-.course-grid {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 14px;
+/* GANTI .course-grid */
+.course-grid-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* fade kanan biar keliatan masih ada konten */
+  -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, black 85%, transparent 100%);
 }
+
+.course-grid-wrapper::-webkit-scrollbar { display: none; }
+
+.course-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  width: max-content;
+  padding: 4px 2px 8px;
+}
+
+/* card width tetap di horizontal scroll */
+.course-card {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* list view override — tetap vertikal */
+.course-grid.list-view {
+  flex-direction: column;
+  width: 100%;
+}
+
+.course-grid.list-view .course-card { width: 100%; }
 
 /* Override card itu sendiri */
 .course-card {
@@ -402,4 +433,30 @@ body.dark .course-wishlist { background: rgba(26, 32, 53, 0.9); }
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .course-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}
+
+/* --- Scroll Controls --- */
+.scroll-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.scroll-arrow {
+  width: 32px; height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.scroll-arrow:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
 }

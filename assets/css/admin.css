@@ -527,3 +527,22 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Image Preview di form --- */
+.image-preview {
+  margin-top: 8px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-height: 160px;
+  border: 1px solid var(--border);
+  display: none;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-preview.show { display: block; }

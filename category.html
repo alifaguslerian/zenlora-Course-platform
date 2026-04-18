@@ -1,172 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zenlora — Kategori</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/navbar.css" />
-  <link rel="stylesheet" href="assets/css/courses.css" />
-  <link rel="stylesheet" href="assets/css/modal.css" />
-  <link rel="stylesheet" href="assets/css/footer.css" />
-  <link rel="stylesheet" href="assets/css/category.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zenlora — Kategori</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/navbar.css" />
+    <link rel="stylesheet" href="assets/css/courses.css" />
+    <link rel="stylesheet" href="assets/css/modal.css" />
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    <link rel="stylesheet" href="assets/css/category.css" />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-left">
+        <div class="nav-logo">
+          <a
+            href="index.html"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              text-decoration: none;
+            "
+          >
+            <span class="logo-icon">Z</span>
+            <span class="logo-text"
+              >Zen<span class="logo-accent">lora</span></span
+            >
+          </a>
+        </div>
+        <div class="nav-search">
+          <span class="search-icon">&#128269;</span>
+          <input
+            type="text"
+            placeholder="Cari kursus, topik, instruktur..."
+            id="searchInput"
+          />
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="#" class="nav-link">Jelajahi</a>
+        <a href="#" class="nav-link">Komunitas</a>
+        <a href="#" class="nav-link">Tentang</a>
+        <button class="btn-outline">Masuk</button>
+        <button class="btn-primary">Daftar</button>
+        <button class="btn-darkmode" id="darkModeToggle" title="Dark Mode">
+          &#9790;
+        </button>
+        <button class="nav-hamburger" id="hamburger">&#9776;</button>
+      </div>
+    </nav>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-left">
-      <div class="nav-logo">
-        <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
-          <span class="logo-icon">Z</span>
-          <span class="logo-text">Zen<span class="logo-accent">lora</span></span>
-        </a>
-      </div>
-      <div class="nav-search">
-        <span class="search-icon">&#128269;</span>
-        <input type="text" placeholder="Cari kursus, topik, instruktur..." id="searchInput" />
-      </div>
-    </div>
-    <div class="nav-right">
-      <a href="#" class="nav-link">Jelajahi</a>
-      <a href="#" class="nav-link">Komunitas</a>
-      <a href="#" class="nav-link">Tentang</a>
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Jelajahi</a>
+      <a href="#">Komunitas</a>
+      <a href="#">Tentang</a>
       <button class="btn-outline">Masuk</button>
       <button class="btn-primary">Daftar</button>
-      <button class="btn-darkmode" id="darkModeToggle" title="Dark Mode">&#9790;</button>
-      <button class="nav-hamburger" id="hamburger">&#9776;</button>
     </div>
-  </nav>
 
-  <!-- ===== MOBILE MENU ===== -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#">Jelajahi</a>
-    <a href="#">Komunitas</a>
-    <a href="#">Tentang</a>
-    <button class="btn-outline">Masuk</button>
-    <button class="btn-primary">Daftar</button>
-  </div>
-
-  <!-- ===== CATEGORY NAV ===== -->
-  <div class="cat-nav" id="catNav">
-    <div class="cat-nav-inner">
-      <a href="index.html" class="cat-tab">Home</a>
-      <a href="category.html?cat=coding" class="cat-tab" data-cat="coding">Coding</a>
-      <a href="category.html?cat=desain" class="cat-tab" data-cat="desain">Desain</a>
-      <a href="category.html?cat=bisnis" class="cat-tab" data-cat="bisnis">Bisnis</a>
-      <a href="category.html?cat=data" class="cat-tab" data-cat="data">Data Science</a>
-      <a href="category.html?cat=ai" class="cat-tab" data-cat="ai">AI & ML</a>
-      <a href="category.html?cat=game" class="cat-tab" data-cat="game">Game Dev</a>
-      <a href="category.html?cat=mobile" class="cat-tab" data-cat="mobile">Mobile Dev</a>
-    </div>
-  </div>
-
-  <!-- ===== CATEGORY HERO ===== -->
-  <div class="cat-hero" id="catHero">
-    <div class="container">
-      <div class="cat-hero-breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
-        <span id="catBreadcrumb">Kategori</span>
+    <!-- ===== CATEGORY NAV ===== -->
+    <div class="cat-nav" id="catNav">
+      <div class="cat-nav-inner">
+        <a href="index.html" class="cat-tab">Home</a>
+        <a href="category.html?cat=coding" class="cat-tab" data-cat="coding"
+          >Coding</a
+        >
+        <a href="category.html?cat=desain" class="cat-tab" data-cat="desain"
+          >Desain</a
+        >
+        <a href="category.html?cat=bisnis" class="cat-tab" data-cat="bisnis"
+          >Bisnis</a
+        >
+        <a href="category.html?cat=data" class="cat-tab" data-cat="data"
+          >Data Science</a
+        >
+        <a href="category.html?cat=ai" class="cat-tab" data-cat="ai">AI & ML</a>
+        <a href="category.html?cat=game" class="cat-tab" data-cat="game"
+          >Game Dev</a
+        >
+        <a href="category.html?cat=mobile" class="cat-tab" data-cat="mobile"
+          >Mobile Dev</a
+        >
       </div>
-      <div class="cat-hero-icon" id="catHeroIcon"></div>
-      <h1 class="cat-hero-title" id="catHeroTitle">Kategori</h1>
-      <p class="cat-hero-sub" id="catHeroSub"></p>
-      <div class="cat-hero-stats" id="catHeroStats"></div>
     </div>
-  </div>
 
-  <!-- ===== COURSE LIST ===== -->
-  <section class="section section-recommended">
-    <div class="container">
-      <div class="recommended-header">
-        <div>
-          <h2 class="section-title" style="text-align:left;margin-bottom:4px" id="catSectionTitle">Kursus</h2>
-          <p class="section-sub" style="text-align:left" id="resultCount"></p>
+    <!-- ===== CATEGORY HERO ===== -->
+    <div class="cat-hero" id="catHero">
+      <div class="container">
+        <div class="cat-hero-breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span id="catBreadcrumb">Kategori</span>
         </div>
-        <div class="toolbar-right">
-          <select class="sort-select" id="sortSelect">
-            <option value="popular">Terpopuler</option>
-            <option value="newest">Terbaru</option>
-            <option value="rating">Rating Tertinggi</option>
-            <option value="price-low">Harga Terendah</option>
-          </select>
-          <button class="view-btn active" id="viewGrid" title="Grid">&#8862;</button>
-          <button class="view-btn" id="viewList" title="List">&#9776;</button>
-        </div>
-      </div>
-      <div class="course-grid" id="courseGrid"></div>
-      <div class="load-more-wrap">
-        <button class="btn-load-more" id="loadMoreBtn">Muat Lebih Banyak</button>
+        <div class="cat-hero-icon" id="catHeroIcon"></div>
+        <h1 class="cat-hero-title" id="catHeroTitle">Kategori</h1>
+        <p class="cat-hero-sub" id="catHeroSub"></p>
+        <div class="cat-hero-stats" id="catHeroStats"></div>
       </div>
     </div>
-  </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="nav-logo">
-            <span class="logo-icon">Z</span>
-            <span class="logo-text">Zen<span class="logo-accent">lora</span></span>
+    <!-- ===== COURSE LIST ===== -->
+    <section class="section section-recommended">
+      <div class="container">
+        <div class="recommended-header">
+          <div class="scroll-controls" id="scrollControls">
+            <button class="scroll-arrow" id="scrollLeft">&#8592;</button>
+            <button class="scroll-arrow" id="scrollRight">&#8594;</button>
           </div>
-          <p>A simple way to learn new skills and grow your career.</p>
-          <div class="social-links">
-            <a href="#" class="social-btn">TW</a>
-            <a href="#" class="social-btn">IG</a>
-            <a href="#" class="social-btn">LI</a>
-            <a href="#" class="social-btn">YT</a>
+          <div>
+            <h2
+              class="section-title"
+              style="text-align: left; margin-bottom: 4px"
+              id="catSectionTitle"
+            >
+              Kursus
+            </h2>
+            <p
+              class="section-sub"
+              style="text-align: left"
+              id="resultCount"
+            ></p>
+          </div>
+          <div class="toolbar-right">
+            <select class="sort-select" id="sortSelect">
+              <option value="popular">Terpopuler</option>
+              <option value="newest">Terbaru</option>
+              <option value="rating">Rating Tertinggi</option>
+              <option value="price-low">Harga Terendah</option>
+            </select>
+            <button class="view-btn active" id="viewGrid" title="Grid">
+              &#8862;
+            </button>
+            <button class="view-btn" id="viewList" title="List">&#9776;</button>
           </div>
         </div>
-        <div class="footer-col">
-          <h4>Kursus</h4>
-          <a href="category.html?cat=coding">Coding</a>
-          <a href="category.html?cat=mobile">Mobile Dev</a>
-          <a href="category.html?cat=desain">UI/UX Design</a>
-          <a href="category.html?cat=data">Data Science</a>
-          <a href="category.html?cat=ai">AI & ML</a>
+        <div class="course-grid-wrapper" id="courseGridWrapper">
+          <div class="course-grid" id="courseGrid"></div>
         </div>
-        <div class="footer-col">
-          <h4>Perusahaan</h4>
-          <a href="#">Tentang Kami</a>
-          <a href="#">Karir</a>
-          <a href="#">Blog</a>
-          <a href="#">Press Kit</a>
-          <a href="#">Hubungi Kami</a>
-        </div>
-        <div class="footer-col">
-          <h4>Support</h4>
-          <a href="#">Pusat Bantuan</a>
-          <a href="#">Syarat & Ketentuan</a>
-          <a href="#">Kebijakan Privasi</a>
-          <a href="#">Refund Policy</a>
-          <a href="admin.html">Admin Panel</a>
+        <div class="load-more-wrap">
+          <button class="btn-load-more" id="loadMoreBtn">
+            Muat Lebih Banyak
+          </button>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>2025 Zenlora. All rights reserved.</span>
-        <span>Dibuat dengan semangat di Indonesia</span>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="nav-logo">
+              <span class="logo-icon">Z</span>
+              <span class="logo-text"
+                >Zen<span class="logo-accent">lora</span></span
+              >
+            </div>
+            <p>A simple way to learn new skills and grow your career.</p>
+            <div class="social-links">
+              <a href="#" class="social-btn">TW</a>
+              <a href="#" class="social-btn">IG</a>
+              <a href="#" class="social-btn">LI</a>
+              <a href="#" class="social-btn">YT</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Kursus</h4>
+            <a href="category.html?cat=coding">Coding</a>
+            <a href="category.html?cat=mobile">Mobile Dev</a>
+            <a href="category.html?cat=desain">UI/UX Design</a>
+            <a href="category.html?cat=data">Data Science</a>
+            <a href="category.html?cat=ai">AI & ML</a>
+          </div>
+          <div class="footer-col">
+            <h4>Perusahaan</h4>
+            <a href="#">Tentang Kami</a>
+            <a href="#">Karir</a>
+            <a href="#">Blog</a>
+            <a href="#">Press Kit</a>
+            <a href="#">Hubungi Kami</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">Pusat Bantuan</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Refund Policy</a>
+            <a href="admin.html">Admin Panel</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>2025 Zenlora. All rights reserved.</span>
+          <span>Dibuat dengan semangat di Indonesia</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== MODAL ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modal">
+        <button class="modal-close" id="modalClose">&#10005;</button>
+        <div class="modal-content" id="modalContent"></div>
       </div>
     </div>
-  </footer>
 
-  <!-- ===== MODAL ===== -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="modal">
-      <button class="modal-close" id="modalClose">&#10005;</button>
-      <div class="modal-content" id="modalContent"></div>
-    </div>
-  </div>
+    <div class="toast" id="toast"></div>
 
-  <div class="toast" id="toast"></div>
-
-  <script src="assets/js/data.js"></script>
-  <script src="assets/js/navbar.js"></script>
-  <script src="assets/js/courses.js"></script>
-  <script src="assets/js/modal.js"></script>
-  <script src="assets/js/category.js"></script>
-</body>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/courses.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/category.js"></script>
+  </body>
 </html>

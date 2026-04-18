@@ -19,7 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPromo();     // scroll promo strip & countdown timer (promo.js)
   setupMarquee();   // setup marquee (marquee.js)
   animateOnScroll();    // fade-in saat elemen masuk viewport
+  setupCourseScroll();  // tombol scroll horizontal untuk section rekomendasi
 });
+
+// --- Course Horizontal Scroll Controls ---
+function setupCourseScroll() {
+  const wrapper = document.getElementById("courseGridWrapper");
+  const btnL    = document.getElementById("scrollLeft");
+  const btnR    = document.getElementById("scrollRight");
+  if (!wrapper || !btnL || !btnR) return;
+
+  const AMOUNT = 480;
+
+  btnL.addEventListener("click", () => {
+    wrapper.scrollBy({ left: -AMOUNT, behavior: "smooth" });
+  });
+  btnR.addEventListener("click", () => {
+    wrapper.scrollBy({ left: AMOUNT, behavior: "smooth" });
+  });
+}
 
 // --- Marquee: duplikat konten agar loop seamless ---
 function setupMarquee() {

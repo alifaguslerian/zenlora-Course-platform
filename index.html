@@ -55,13 +55,27 @@
     <div class="cat-nav">
       <div class="cat-nav-inner">
         <a href="index.html" class="cat-tab active">Home</a>
-        <a href="category.html?cat=coding" class="cat-tab" target="_blank">Coding</a>
-        <a href="category.html?cat=desain" class="cat-tab" target="_blank">Desain</a>
-        <a href="category.html?cat=bisnis" class="cat-tab" target="_blank">Bisnis</a>
-        <a href="category.html?cat=data" class="cat-tab" target="_blank">Data Science</a>
-        <a href="category.html?cat=ai" class="cat-tab" target="_blank">AI & ML</a>
-        <a href="category.html?cat=game" class="cat-tab" target="_blank">Game Dev</a>
-        <a href="category.html?cat=mobile" class="cat-tab" target="_blank">Mobile Dev</a>
+        <a href="category.html?cat=coding" class="cat-tab" target="_blank"
+          >Coding</a
+        >
+        <a href="category.html?cat=desain" class="cat-tab" target="_blank"
+          >Desain</a
+        >
+        <a href="category.html?cat=bisnis" class="cat-tab" target="_blank"
+          >Bisnis</a
+        >
+        <a href="category.html?cat=data" class="cat-tab" target="_blank"
+          >Data Science</a
+        >
+        <a href="category.html?cat=ai" class="cat-tab" target="_blank"
+          >AI & ML</a
+        >
+        <a href="category.html?cat=game" class="cat-tab" target="_blank"
+          >Game Dev</a
+        >
+        <a href="category.html?cat=mobile" class="cat-tab" target="_blank"
+          >Mobile Dev</a
+        >
       </div>
     </div>
 
@@ -280,6 +294,10 @@
     <section class="section section-recommended">
       <div class="container">
         <div class="recommended-header">
+          <div class="scroll-controls" id="scrollControls">
+            <button class="scroll-arrow" id="scrollLeft">&#8592;</button>
+            <button class="scroll-arrow" id="scrollRight">&#8594;</button>
+          </div>
           <div>
             <h2
               class="section-title"
@@ -304,7 +322,9 @@
             <button class="view-btn" id="viewList" title="List">&#9776;</button>
           </div>
         </div>
-        <div class="course-grid" id="courseGrid"></div>
+        <div class="course-grid-wrapper" id="courseGridWrapper">
+          <div class="course-grid" id="courseGrid"></div>
+        </div>
         <div class="load-more-wrap">
           <button class="btn-load-more" id="loadMoreBtn">
             Muat Lebih Banyak
