@@ -12,37 +12,39 @@ Platform kursus online modern berbasis HTML, CSS, dan JavaScript vanilla. Dibang
 
 ---
 
-## Struktur Folder
+##  Struktur Folder
 
+```
 zenlora/
 ├── index.html          # Halaman utama
 ├── category.html       # Halaman kategori kursus
 ├── admin.html          # Admin panel
 ├── README.md
-└── assets/
-├── css/
-│   ├── base.css          # Variables, reset, typography, animasi
-│   ├── navbar.css        # Navbar utama + secondary category nav
-│   ├── hero.css          # Hero section + promo banners
-│   ├── promo.css         # Promo strip
-│   ├── marquee.css       # Auto-scroll marquee cards
-│   ├── courses.css       # Course grid, card, filter, toolbar
-│   ├── instructors.css   # Instructor grid dan card
-│   ├── modal.css         # Modal detail kursus + CTA banner
-│   ├── footer.css        # Footer
-│   ├── category.css      # Hero per halaman kategori
-│   └── admin.css         # Admin panel layout dan form
-└── js/
-├── data.js           # Data COURSES dan INSTRUCTORS (sumber utama)
-├── navbar.js         # Scroll hide/show navbar, dark mode, mobile menu
-├── courses.js        # Render kursus, filter, sort, wishlist, instruktur
-├── modal.js          # Modal detail kursus
-├── promo.js          # Countdown timer flash sale
-├── category.js       # Logic halaman kategori
-├── admin.js          # CRUD kursus di admin panel
-└── main.js           # Entry point, init semua fitur
 
----
+└── assets/
+    ├── css/
+    │   ├── base.css        # Variables, reset, typography, animasi
+    │   ├── navbar.css      # Navbar utama + secondary category nav
+    │   ├── hero.css        # Hero section + promo banners
+    │   ├── promo.css       # Promo strip
+    │   ├── marquee.css     # Auto-scroll marquee cards
+    │   ├── courses.css     # Course grid, card, filter, toolbar
+    │   ├── instructors.css # Instructor grid dan card
+    │   ├── modal.css       # Modal detail kursus + CTA banner
+    │   ├── footer.css      # Footer
+    │   ├── category.css    # Hero per halaman kategori
+    │   └── admin.css       # Admin panel layout dan form
+
+    └── js/
+        ├── data.js     # Data COURSES dan INSTRUCTORS (sumber utama)
+        ├── navbar.js   # Scroll hide/show navbar, dark mode, mobile menu
+        ├── courses.js  # Render kursus, filter, sort, wishlist, instruktur
+        ├── modal.js    # Modal detail kursus
+        ├── promo.js    # Countdown timer flash sale
+        ├── category.js # Logic halaman kategori
+        ├── admin.js    # CRUD kursus di admin panel
+        └── main.js     # Entry point, init semua fitur
+```
 
 ## Fitur
 
