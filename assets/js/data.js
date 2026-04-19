@@ -9,7 +9,9 @@ const COURSES = [
     id: 1, category: "coding", catLabel: "Coding",
     title: "Full Stack Web Development dengan React dan Node.js",
     instructor: "Budi Santoso", instructorAvatar: "BS",
-    emoji: "W", color: "#dbeafe",
+    instructorPhoto: "https://i.pravatar.cc/150?img=11",
+    image: "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=400&h=220&fit=crop",
+    emoji: "WD", color: "#dbeafe",
     rating: 4.9, ratingCount: 3241, students: 12800,
     duration: "48 jam", lessons: 210, level: "Pemula ke Lanjut",
     price: 249000, originalPrice: 599000,
@@ -21,7 +23,9 @@ const COURSES = [
     id: 2, category: "desain", catLabel: "Desain",
     title: "UI/UX Design Mastery: Figma, Prototyping dan Design System",
     instructor: "Sari Putri", instructorAvatar: "SP",
-    emoji: "D", color: "#ede9fe",
+    instructorPhoto: "https://i.pravatar.cc/150?img=47",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=220&fit=crop",
+    emoji: "UI", color: "#ede9fe",
     rating: 4.8, ratingCount: 1876, students: 7400,
     duration: "32 jam", lessons: 145, level: "Semua Level",
     price: 199000, originalPrice: 449000,
@@ -33,6 +37,8 @@ const COURSES = [
     id: 3, category: "ai", catLabel: "AI & ML",
     title: "Machine Learning dan AI dengan Python: Zero to Hero",
     instructor: "Dr. Ahmad Fauzi", instructorAvatar: "AF",
+    instructorPhoto: "https://i.pravatar.cc/150?img=33",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&h=220&fit=crop",
     emoji: "AI", color: "#cffafe",
     rating: 4.9, ratingCount: 2105, students: 9200,
     duration: "55 jam", lessons: 280, level: "Menengah",
@@ -45,7 +51,9 @@ const COURSES = [
     id: 4, category: "bisnis", catLabel: "Bisnis",
     title: "Digital Marketing Masterclass: SEO, Ads dan Content Strategy",
     instructor: "Rina Dewi", instructorAvatar: "RD",
-    emoji: "M", color: "#fef9c3",
+    instructorPhoto: "https://i.pravatar.cc/150?img=48",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=220&fit=crop",
+    emoji: "MK", color: "#fef9c3",
     rating: 4.7, ratingCount: 1543, students: 5600,
     duration: "28 jam", lessons: 120, level: "Pemula",
     price: 0, originalPrice: 299000,
@@ -57,6 +65,8 @@ const COURSES = [
     id: 5, category: "data", catLabel: "Data Science",
     title: "Data Science dengan Python: Analisis, Visualisasi dan Dashboard",
     instructor: "Hendra Kurnia", instructorAvatar: "HK",
+    instructorPhoto: "https://i.pravatar.cc/150?img=13",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=220&fit=crop",
     emoji: "DS", color: "#ffedd5",
     rating: 4.8, ratingCount: 987, students: 3800,
     duration: "38 jam", lessons: 165, level: "Menengah",
@@ -69,7 +79,9 @@ const COURSES = [
     id: 6, category: "game", catLabel: "Game Dev",
     title: "Unity Game Development: Buat Game 3D dari Nol",
     instructor: "Fajar Ramadhan", instructorAvatar: "FR",
-    emoji: "G", color: "#fce7f3",
+    instructorPhoto: "https://i.pravatar.cc/150?img=52",
+    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=220&fit=crop",
+    emoji: "GD", color: "#fce7f3",
     rating: 4.9, ratingCount: 2234, students: 8100,
     duration: "42 jam", lessons: 190, level: "Pemula ke Pro",
     price: 289000, originalPrice: 649000,
@@ -81,6 +93,8 @@ const COURSES = [
     id: 7, category: "coding", catLabel: "Coding",
     title: "Flutter dan Dart: Buat Aplikasi iOS dan Android Sekaligus",
     instructor: "Kevin Pratama", instructorAvatar: "KP",
+    instructorPhoto: "https://i.pravatar.cc/150?img=15",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=220&fit=crop",
     emoji: "FL", color: "#dbeafe",
     rating: 4.8, ratingCount: 1320, students: 5200,
     duration: "35 jam", lessons: 155, level: "Pemula",
@@ -93,6 +107,8 @@ const COURSES = [
     id: 8, category: "desain", catLabel: "Desain",
     title: "Ilustrasi Digital dan Branding dengan Adobe Illustrator",
     instructor: "Maya Susanti", instructorAvatar: "MS",
+    instructorPhoto: "https://i.pravatar.cc/150?img=44",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=220&fit=crop",
     emoji: "IL", color: "#ede9fe",
     rating: 4.7, ratingCount: 876, students: 3100,
     duration: "22 jam", lessons: 95, level: "Pemula ke Menengah",
@@ -105,6 +121,8 @@ const COURSES = [
     id: 9, category: "ai", catLabel: "AI & ML",
     title: "ChatGPT dan Prompt Engineering: Kuasai AI untuk Bisnis",
     instructor: "Indra Wijaya", instructorAvatar: "IW",
+    instructorPhoto: "https://i.pravatar.cc/150?img=18",
+    image: "https://picsum.photos/seed/chatgpt/400/220",
     emoji: "PE", color: "#cffafe",
     rating: 4.6, ratingCount: 3455, students: 15200,
     duration: "18 jam", lessons: 80, level: "Semua Level",
@@ -117,6 +135,8 @@ const COURSES = [
     id: 10, category: "bisnis", catLabel: "Bisnis",
     title: "Bisnis Online dan E-commerce: Dari Nol ke Profit",
     instructor: "Toni Handoko", instructorAvatar: "TH",
+    instructorPhoto: "https://i.pravatar.cc/150?img=59",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=220&fit=crop",
     emoji: "EC", color: "#fef9c3",
     rating: 4.7, ratingCount: 1987, students: 7800,
     duration: "30 jam", lessons: 130, level: "Pemula",
@@ -129,6 +149,8 @@ const COURSES = [
     id: 11, category: "data", catLabel: "Data Science",
     title: "SQL dan Database: Analisis Data untuk Pemula",
     instructor: "Agus Setiawan", instructorAvatar: "AS",
+    instructorPhoto: "https://i.pravatar.cc/150?img=57",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=220&fit=crop",
     emoji: "SQL", color: "#ffedd5",
     rating: 4.8, ratingCount: 1234, students: 4600,
     duration: "20 jam", lessons: 90, level: "Pemula",
@@ -141,6 +163,8 @@ const COURSES = [
     id: 12, category: "coding", catLabel: "Coding",
     title: "Cybersecurity dan Ethical Hacking untuk Pemula",
     instructor: "Rizky Hasan", instructorAvatar: "RH",
+    instructorPhoto: "https://i.pravatar.cc/150?img=56",
+    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=220&fit=crop",
     emoji: "CS", color: "#dbeafe",
     rating: 4.9, ratingCount: 2876, students: 11200,
     duration: "50 jam", lessons: 230, level: "Pemula ke Lanjut",
@@ -189,32 +213,39 @@ const INSTRUCTORS = [
     photo: "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     courses: 4, students: "11K", rating: "4.8"
   },
-  {
-    name: "Fajar Ramadhan",
-    specialty: "Game Developer",
-    avatar: "FR",
-    photo: "https://plus.unsplash.com/premium_photo-1689629870780-5d0e655383e6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    courses: 7, students: "19K", rating: "4.9"
-  },
+ 
 ];
 
-// ============================================================
-// SYNC — load data dari localStorage jika ada (dari admin panel)
-// Jika belum ada, pakai array COURSES di atas sebagai default
-// dan simpan ke localStorage sekalian
-// ============================================================
+// Force reset localStorage jika versi data tidak match
+const DATA_VERSION = "3.2";
+if (localStorage.getItem("zenlora-data-version") !== DATA_VERSION) {
+  localStorage.removeItem("zenlora-courses");
+  localStorage.setItem("zenlora-data-version", DATA_VERSION);
+}
 
+// GANTI seluruh blok (function syncCourses()
 (function syncCourses() {
   const saved = localStorage.getItem("zenlora-courses");
 
   if (saved) {
-    // ada data dari admin, timpa array COURSES
-    const parsed = JSON.parse(saved);
-    COURSES.length = 0;
-    parsed.forEach(c => COURSES.push(c));
+    try {
+      const parsed = JSON.parse(saved);
+      // validasi — pastikan data punya field image yang dibutuhkan
+      // jika data lama (tanpa image), reset ke default
+      const hasImage = parsed.some(c => c.image);
+      if (!hasImage) {
+        localStorage.removeItem("zenlora-courses");
+        localStorage.setItem("zenlora-courses", JSON.stringify(COURSES));
+        return;
+      }
+      COURSES.length = 0;
+      parsed.forEach(c => COURSES.push(c));
+    } catch(e) {
+      // data corrupt, reset
+      localStorage.removeItem("zenlora-courses");
+      localStorage.setItem("zenlora-courses", JSON.stringify(COURSES));
+    }
   } else {
-    // belum ada, simpan data default ke localStorage
-    // supaya admin panel dan website pakai sumber yang sama
     localStorage.setItem("zenlora-courses", JSON.stringify(COURSES));
   }
 })();

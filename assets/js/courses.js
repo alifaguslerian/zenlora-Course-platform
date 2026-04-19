@@ -130,38 +130,44 @@ function createCourseCard(course, idx) {
   card.className = "course-card";
   card.style.animationDelay = `${idx * 0.07}s`;
 
-  const badgeClass =
-    {
-      hot: "badge-hot",
-      new: "badge-new",
-      bestseller: "badge-bestseller",
-      free: "badge-free",
-      updated: "badge-updated",
-    }[course.badge] || "badge-hot";
+  const badgeClass = {
+    hot: "badge-hot", new: "badge-new",
+    bestseller: "badge-bestseller",
+    free: "badge-free", updated: "badge-updated"
+  }[course.badge] || "badge-hot";
 
-  const priceHTML =
-    course.price === 0
-      ? `<span class="price-free">Gratis</span>`
-      : `<span class="price-current">Rp ${course.price.toLocaleString("id-ID")}</span>
+  const priceHTML = course.price === 0
+    ? `<span class="price-free">Gratis</span>`
+    : `<span class="price-current">Rp ${course.price.toLocaleString("id-ID")}</span>
        <span class="price-original">Rp ${course.originalPrice.toLocaleString("id-ID")}</span>`;
 
   const isWished = wishlist.has(course.id);
 
+  // thumbnail: gambar online atau fallback placeholder kecil
+  const thumbHTML = course.image
+    ? `<img
+        src="${course.image}"
+        alt="${course.title}"
+        style="width:100%;height:100%;object-fit:cover;display:block"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+      />
+      <div class="course-thumbnail-placeholder" style="display:none;background:${course.color}">
+        <span style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--accent-blue)">${course.emoji}</span>
+      </div>`
+    : `<div class="course-thumbnail-placeholder" style="background:${course.color}">
+        <span style="font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--accent-blue)">${course.emoji}</span>
+      </div>`;
+
+  // foto instruktur kecil di card
+  const instrPhotoHTML = course.instructorPhoto
+    ? `<img src="${course.instructorPhoto}" alt="${course.instructor}"
+            style="width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:4px"
+            onerror="this.style.display='none'" />`
+    : "";
+
   card.innerHTML = `
-    ${
-      course.image
-        ? `<img src="${course.image}" alt="${course.title}"
-               style="width:100%;height:100%;object-fit:cover"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-           <div class="course-thumbnail-placeholder"
-                style="display:none;background:${course.color};font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--accent-blue)">
-             ${course.emoji}
-           </div>`
-        : `<div class="course-thumbnail-placeholder"
-                style="background:${course.color};font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--accent-blue)">
-             ${course.emoji}
-           </div>`
-    }
+    <div class="course-thumbnail">
+      ${thumbHTML}
       <span class="course-badge ${badgeClass}">${course.badgeLabel}</span>
       <button class="course-wishlist ${isWished ? "active" : ""}" data-id="${course.id}">
         ${isWished ? "♥" : "♡"}
@@ -170,16 +176,13 @@ function createCourseCard(course, idx) {
     <div class="course-body">
       <div class="course-category">${course.catLabel}</div>
       <div class="course-title">${course.title}</div>
-      <div class="course-instructor">oleh ${course.instructor}</div>
+      <div class="course-instructor">
+        ${instrPhotoHTML}oleh ${course.instructor}
+      </div>
       <div class="course-rating">
         <span class="rating-stars">${"★".repeat(Math.floor(course.rating))}${"☆".repeat(5 - Math.floor(course.rating))}</span>
         <span class="rating-num">${course.rating}</span>
         <span class="rating-count">(${course.ratingCount.toLocaleString("id-ID")})</span>
-      </div>
-      <div class="course-meta">
-        <span class="meta-item">${course.duration}</span>
-        <span class="meta-item">${course.lessons} pelajaran</span>
-        <span class="meta-item">${course.students.toLocaleString("id-ID")} pelajar</span>
       </div>
     </div>
     <div class="course-footer">
@@ -188,21 +191,16 @@ function createCourseCard(course, idx) {
     </div>
   `;
 
-  // wishlist toggle
   card.querySelector(".course-wishlist").addEventListener("click", (e) => {
-    e.stopPropagation(); // jangan buka modal
+    e.stopPropagation();
     toggleWishlist(course.id, e.currentTarget);
   });
 
-  // daftar langsung tanpa buka modal
   card.querySelector(".btn-enroll").addEventListener("click", (e) => {
     e.stopPropagation();
-    showToast(
-      "Berhasil mendaftar ke kursus: " + course.title.slice(0, 32) + "...",
-    );
+    showToast("Berhasil mendaftar ke kursus: " + course.title.slice(0, 32) + "...");
   });
 
-  // buka modal detail saat card diklik
   card.addEventListener("click", () => openModal(course));
 
   return card;

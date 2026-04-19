@@ -23,6 +23,7 @@ function openModal(course) {
     : `<span class="price-current">Rp ${course.price.toLocaleString("id-ID")}</span>
        <span class="price-original">Rp ${course.originalPrice.toLocaleString("id-ID")}</span>`;
 
+
   const discount = course.price > 0
     ? Math.round((1 - course.price / course.originalPrice) * 100)
     : 0;
@@ -31,12 +32,23 @@ function openModal(course) {
     .map(f => `<div class="modal-feature"><span style="color:var(--accent-blue);font-weight:800">✓</span> ${f}</div>`)
     .join("");
 
+  const thumbHTML = course.image
+    ? `<img
+        src="${course.image}"
+        alt="${course.title}"
+        style="width:100%;height:100%;object-fit:cover;display:block;border-radius:8px"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+      />
+      <div class="modal-thumb-placeholder" style="display:none;background:${course.color};font-family:var(--font-display);font-size:40px;font-weight:700;color:var(--accent-blue)">
+        ${course.emoji}
+      </div>`
+    : `<div class="modal-thumb-placeholder" style="background:${course.color};font-family:var(--font-display);font-size:40px;font-weight:700;color:var(--accent-blue)">
+        ${course.emoji}
+      </div>`;
+
   document.getElementById("modalContent").innerHTML = `
     <div class="modal-thumb">
-      <div class="modal-thumb-placeholder"
-           style="background:${course.color};font-family:var(--font-display);font-size:40px;font-weight:700;color:var(--accent-blue)">
-        ${course.emoji}
-      </div>
+      ${thumbHTML}
     </div>
     <div class="modal-category">${course.catLabel}</div>
     <div class="modal-title">${course.title}</div>
@@ -58,8 +70,8 @@ function openModal(course) {
       <div class="modal-price-section">
         ${priceHTML}
         ${discount > 0
-          ? `<div style="font-size:12px;color:var(--accent-orange);font-weight:700;margin-top:4px">Hemat ${discount}%</div>`
-          : ""}
+      ? `<div style="font-size:12px;color:var(--accent-orange);font-weight:700;margin-top:4px">Hemat ${discount}%</div>`
+      : ""}
       </div>
       <button class="btn-modal-enroll" onclick="handleEnroll()">
         ${course.price === 0 ? "Ambil Gratis" : "Daftar Sekarang"}
